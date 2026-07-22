@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tacos Marrakech - Sabores Auténticos del Norte de África</title>
+<meta name="description" content="Restaurante Tacos Marrakech en Llevant, Palma de Mallorca. Tacos XXL, Burgers Halal y el mejor Té Moruno. Comida marroquí auténtica con ingredientes frescos."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<!-- GSAP for premium animations (motion-design skill) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        DEFAULT: '#C4632A',
+                        hover: '#A35222'
+                    },
+                    secondary: {
+                        DEFAULT: '#3B2314',
+                        light: '#4A2C19'
+                    },
+                    tertiary: {
+                        DEFAULT: '#D4A84B',
+                        hover: '#C2983F'
+                    },
+                    accent: {
+                        DEFAULT: '#4CAF7D'
+                    },
+                    neutral: {
+                        DEFAULT: '#1A1210',
+                        light: '#2A1D1A'
+                    }
+                },
+                borderRadius: {
+                    "DEFAULT": "0.75rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "2xl": "2rem",
+                    "full": "9999px"
+                },
+                fontFamily: {
+                    "headline": ["Cinzel", "Playfair Display", "serif"],
+                    "display": ["Playfair Display", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Outfit", "sans-serif"]
+                },
+                animation: {
+                    'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    'float': 'float 4s ease-in-out infinite',
+                    'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                },
+                keyframes: {
+                    fadeInUp: {
+                        '0%': { opacity: '0', transform: 'translateY(30px)', filter: 'blur(10px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+                    },
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                        '50%': { transform: 'translateY(-12px) rotate(2deg)' },
+                    },
+                    pulseGlow: {
+                        '0%, 100%': { boxShadow: '0 0 20px rgba(196, 99, 42, 0.3)' },
+                        '50%': { boxShadow: '0 0 40px rgba(196, 99, 42, 0.6)' },
+                    }
+                }
+            }
+        }
+    }
+</script>
+<style>
+    /* === GLASS NAV === */
+    .glass-nav {
+        background: rgba(26, 18, 16, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(212, 168, 75, 0.08);
+    }
+    .glass-nav.scrolled {
+        background: rgba(26, 18, 16, 0.95);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    /* === MOROCCAN PATTERN === */
+    .moroccan-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zM30 10L10 30L30 50L50 30L30 10z' fill='%23D4A84B' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    /* === GOLD GRADIENT TEXT === */
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #FFF0CA 0%, #F5C767 40%, #D4A84B 70%, #B8852B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* === SCROLL ANIMATIONS (GSAP-powered) === */
+    .reveal {
+        will-change: transform, opacity;
+    }
+
+    /* === MENU TAB ACTIVE STATE === */
+    .tab-active {
+        background: linear-gradient(135deg, #C4632A, #D4A84B);
+        color: white;
+        box-shadow: 0 8px 24px rgba(196, 99, 42, 0.4);
+    }
+
+    /* === SMOOTH SCROLL === */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* === TEXT BALANCE (gpt-taste skill) === */
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+    p {
+        max-width: 65ch;
+    }
+
+    /* === MOBILE MENU === */
+    .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+
+    /* === REVIEW CARDS SCROLL === */
+    .reviews-scroll {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    .reviews-scroll > * {
+        scroll-snap-align: start;
+    }
+
+    /* === SELECTION === */
+    ::selection {
+        background: #C4632A;
+        color: white;
+    }
+</style>
+</head>
+<body class="bg-neutral text-white font-body antialiased overflow-x-hidden">
+
+<!-- ============================================ -->
+<!-- HEADER / NAVBAR                              -->
+<!-- ============================================ -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500 py-4 glass-nav" id="navbar" aria-label="Navegación principal">
+  <div class="flex justify-between items-center px-5 md:px-8 max-w-7xl mx-auto">
+    <!-- Logo -->
+    <a class="flex items-center gap-3 group active:scale-95 transition-transform" href="#inicio" aria-label="Inicio">
+      <svg class="w-10 h-10 text-tertiary transition-transform duration-700 group-hover:rotate-180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#D4A84B" />
+        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#C4632A" transform="rotate(45 50 50)" opacity="0.9" />
+        <circle cx="50" cy="50" r="10" fill="#1A1210" stroke="#D4A84B" stroke-width="2"/>
+        <circle cx="50" cy="50" r="4" fill="#D4A84B"/>
+      </svg>
+      <span class="text-2xl font-headline font-bold text-tertiary tracking-tight">Tacos Marrakech</span>
+    </a>
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8 font-label text-sm font-semibold tracking-wider uppercase" id="desktop-nav-links">
+      <a class="text-tertiary border-b-2 border-tertiary pb-1 transition-all duration-300" href="#inicio">Inicio</a>
+      <a class="text-white/70 hover:text-primary transition-all duration-300" href="#nosotros">Sobre Nosotros</a>
+      <a class="text-white/70 hover:text-primary transition-all duration-300" href="#menu-selection-buttons">Menú</a>
+      <a class="text-white/70 hover:text-primary transition-all duration-300" href="#contacto">Contacto</a>
+    </div>
+    <!-- CTA + Hamburger -->
+    <div class="flex items-center gap-4">
+      <button onclick="openReservationModal()" class="hidden md:inline-flex bg-primary hover:bg-tertiary text-white font-label font-bold py-2.5 px-7 rounded-full transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-tertiary/30 active:scale-95 uppercase tracking-widest text-xs cursor-pointer" id="cta-reservar">
+        Reservar / Pedir
+      </button>
+      <button class="md:hidden text-tertiary p-2 hover:text-primary transition-colors" id="mobile-menu-btn" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 z-[60] bg-[#0C0807] mobile-menu flex flex-col items-center justify-center p-6 border-l border-tertiary/10" id="mobile-menu">
+  <!-- Top Bar: Logo & Close Button -->
+  <div class="absolute top-6 left-0 w-full px-6 flex justify-between items-center">
+    <a class="flex items-center gap-2" href="#inicio" onclick="closeMobileMenu()">
+      <svg class="w-8 h-8 text-tertiary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#D4A84B" />
+        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#C4632A" transform="rotate(45 50 50)" opacity="0.9" />
+      </svg>
+      <span class="text-base font-headline font-bold text-tertiary tracking-tight">Tacos Marrakech</span>
+    </a>
+    <button onclick="closeMobileMenu()" id="mobile-menu-close" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-tertiary text-white/80 hover:text-tertiary flex items-center justify-center transition-all cursor-pointer" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined text-lg">close</span>
+    </button>
+  </div>
+
+  <!-- Separador de Sección Bandera de Marruecos -->
+  <div class="w-[80%] flex items-center justify-center my-2">
+    <div class="w-full flex items-center justify-center relative">
+      <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+      <div class="relative z-10 w-8 h-8 rounded-full bg-[#0C0807] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+        <svg class="w-4 h-4 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Links Section with Elegant Typography -->
+  <div class="flex flex-col items-center gap-5 mt-2 mb-2">
+    <a class="font-headline text-2xl font-extrabold text-gold-gradient tracking-widest uppercase" href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+    <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#nosotros" onclick="closeMobileMenu()">Sobre Nosotros</a>
+    <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#menu-selection-buttons" onclick="closeMobileMenu()">Menú</a>
+    <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+  </div>
+  
+  <!-- Separador de Sección Bandera de Marruecos -->
+  <div class="w-[80%] flex items-center justify-center my-2">
+    <div class="w-full flex items-center justify-center relative">
+      <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+      <div class="relative z-10 w-8 h-8 rounded-full bg-[#0C0807] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+        <svg class="w-4 h-4 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two Action Buttons side-by-side -->
+  <div class="flex flex-row items-center justify-center gap-3 w-full max-w-xs mt-4">
+    <button class="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-tertiary hover:to-tertiary text-white font-label font-bold py-3 px-4 rounded-full uppercase tracking-wider text-[10px] shadow-lg shadow-primary/20 active:scale-95 transition-all cursor-pointer text-center" onclick="closeMobileMenu(); openReservationModal();">
+      Reservar Mesa
+    </button>
+    <a href="https://wa.me/34632020209" target="_blank" class="flex-1 bg-[#25D366] hover:bg-[#20ba5a] text-white font-label font-bold py-3 px-4 rounded-full uppercase tracking-wider text-[10px] shadow-lg shadow-green-500/20 active:scale-95 transition-all cursor-pointer text-center flex items-center justify-center gap-1" onclick="closeMobileMenu()">
+      <span class="material-symbols-outlined text-xs">forum</span> Pedir Online
+    </a>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- HERO SECTION                                 -->
+<!-- ============================================ -->
+<section class="relative min-h-screen flex items-end justify-center pt-28 pb-10 sm:pb-14 overflow-hidden" id="inicio">
+  <!-- Enhanced High-Definition Real Restaurant Interior Background -->
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover object-center scale-105 filter contrast-110 saturate-125 brightness-105" alt="Interior real del restaurante Tacos Marrakech" src="assets/hero/hero_real_vibrant.jpg"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-neutral/50 via-neutral/30 to-neutral/95"></div>
+    <div class="absolute inset-0 moroccan-pattern opacity-10"></div>
+  </div>
+
+  <!-- Ambient Glow Overlay -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-tertiary/15 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Content Container (Positioned at Bottom for Maximum Photo Visibility) -->
+  <div class="relative z-10 text-center px-4 max-w-3xl mx-auto flex flex-col items-center reveal">
+    
+    <!-- Main Headline (Compact & Lowered) -->
+    <h1 class="font-headline font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight tracking-tighter drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]" id="hero-title">
+      Auténtica Fusión<br/>
+      <span class="text-gold-gradient">Marroquí en Palma</span>
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="font-body text-xs sm:text-sm md:text-base text-white/90 mb-5 max-w-xl font-light mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+      Los mejores French Tacos gratinados, Hamburguesas Halal, Té Moruno tradicional y repostería artesana.
+    </p>
+
+    <!-- Small & Compact Single Primary Button -->
+    <div class="flex items-center justify-center">
+      <a class="bg-primary hover:bg-tertiary text-white font-label font-bold py-2.5 px-6 rounded-full text-xs transition-all duration-300 shadow-lg shadow-primary/30 flex items-center justify-center gap-2 hover:-translate-y-0.5 group uppercase tracking-wider cursor-pointer" href="#menu-selection-buttons" id="cta-ver-menu">
+        <span class="material-symbols-outlined text-base group-hover:scale-110 transition-transform">menu_book</span>
+        Ver Carta Completa
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Separador de Sección Bandera de Marruecos -->
+<div class="w-full flex items-center justify-center my-6 opacity-80 reveal">
+  <div class="w-[90%] max-w-5xl flex items-center justify-center relative">
+    <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 w-9 h-9 rounded-full bg-[#1A1210] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+      <svg class="w-5 h-5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SOBRE NOSOTROS                               -->
+<!-- ============================================ -->
+<section class="py-20 md:py-28 relative bg-neutral" id="nosotros">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Image Carousel (Autoplay Hero Photos) -->
+      <div class="relative reveal group" id="history-carousel">
+        <div class="absolute inset-0 bg-gradient-to-br from-tertiary/20 to-primary/10 rounded-2xl transform translate-x-4 translate-y-4"></div>
+        <div class="relative z-10 w-full h-[400px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+          <!-- Slides -->
+          <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+            <img class="w-full h-full object-cover" alt="Interior del restaurante con decoracion marroqui" src="assets/hero/IMG_4439.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-4 left-4 font-label text-xs text-tertiary bg-neutral/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-tertiary/30 font-bold shadow-lg">Ambiente Tradicional</span>
+          </div>
+          <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img class="w-full h-full object-cover" alt="Te de menta fresco en tetera de laton grabada" src="assets/hero/IMG_4440.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-4 left-4 font-label text-xs text-tertiary bg-neutral/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-tertiary/30 font-bold shadow-lg">Té Moruno Auténtico</span>
+          </div>
+          <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img class="w-full h-full object-cover" alt="Dulces marroquies y reposteria artesana" src="assets/hero/IMG_4446.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-4 left-4 font-label text-xs text-tertiary bg-neutral/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-tertiary/30 font-bold shadow-lg">Repostería de la Casa</span>
+          </div>
+          <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img class="w-full h-full object-cover" alt="Platos combinados y tacos marroquies" src="assets/food/IMG_4445.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-4 left-4 font-label text-xs text-tertiary bg-neutral/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-tertiary/30 font-bold shadow-lg">Especialidades del Chef</span>
+          </div>
+
+          <!-- Carousel Navigation Dots -->
+          <div class="absolute bottom-4 right-4 z-20 flex gap-2" id="carousel-dots">
+            <button onclick="setHistorySlide(0)" class="w-6 h-2.5 rounded-full bg-tertiary transition-all duration-300 cursor-pointer" aria-label="Foto 1"></button>
+            <button onclick="setHistorySlide(1)" class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Foto 2"></button>
+            <button onclick="setHistorySlide(2)" class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Foto 3"></button>
+            <button onclick="setHistorySlide(3)" class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Foto 4"></button>
+          </div>
+        </div>
+
+        <!-- Decorative Star Icon -->
+        <div class="absolute -bottom-5 -right-5 bg-secondary/90 backdrop-blur-sm p-3.5 rounded-xl border border-tertiary/20 shadow-xl z-20">
+          <svg class="w-8 h-8 text-tertiary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#D4A84B" />
+          </svg>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="space-y-8 reveal">
+        <!-- Eyebrow — gpt-taste H3 style -->
+        <div>
+          <h3 class="font-label text-primary font-bold tracking-[0.25em] uppercase text-xs mb-3">Nuestra Historia</h3>
+          <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">Tradición Familiar en Palma</h2>
+        </div>
+        <p class="text-white/65 text-base md:text-lg leading-relaxed">
+          Ubicados junto a la emblemática Plaza de las Columnas en Palma de Mallorca, Tacos Marrakech nace de la pasión por compartir las auténticas recetas de nuestra familia.
+        </p>
+        <p class="text-white/65 text-base md:text-lg leading-relaxed">
+          Fusionamos la intensidad de las especias magrebíes con ingredientes locales frescos, creando una experiencia culinaria única donde cada bocado cuenta una historia.
+        </p>
+        <!-- Icon Cards — uipro-max Bento Grid style -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+          <div class="bg-neutral-light p-5 rounded-xl border border-white/5 hover:border-tertiary/30 transition-all duration-300 group hover:-translate-y-1">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3 block group-hover:scale-110 transition-transform">eco</span>
+            <h4 class="font-headline font-bold text-sm text-white mb-1">Ingredientes Frescos</h4>
+            <p class="text-xs text-white/50 leading-relaxed">Del mercado local a tu mesa cada día.</p>
+          </div>
+          <div class="bg-neutral-light p-5 rounded-xl border border-white/5 hover:border-tertiary/30 transition-all duration-300 group hover:-translate-y-1">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3 block group-hover:scale-110 transition-transform">restaurant</span>
+            <h4 class="font-headline font-bold text-sm text-white mb-1">Recetas Auténticas</h4>
+            <p class="text-xs text-white/50 leading-relaxed">Especias directas de Marruecos.</p>
+          </div>
+          <div class="bg-neutral-light p-5 rounded-xl border border-white/5 hover:border-tertiary/30 transition-all duration-300 group hover:-translate-y-1">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3 block group-hover:scale-110 transition-transform">groups</span>
+            <h4 class="font-headline font-bold text-sm text-white mb-1">Ambiente Familiar</h4>
+            <p class="text-xs text-white/50 leading-relaxed">Cálido y acogedor, como en casa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Separador de Sección Bandera de Marruecos -->
+<div class="w-full flex items-center justify-center my-6 opacity-80 reveal">
+  <div class="w-[90%] max-w-5xl flex items-center justify-center relative">
+    <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 w-9 h-9 rounded-full bg-[#1A1210] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+      <svg class="w-5 h-5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- MENÚ SECTION                                 -->
+<!-- ============================================ -->
+<section class="py-20 md:py-28 bg-neutral-light relative" id="menu">
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-tertiary/20 to-transparent"></div>
+  <div class="absolute inset-0 moroccan-pattern opacity-5 mix-blend-overlay"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12 reveal">
+      <h3 class="font-label text-primary font-bold tracking-[0.25em] uppercase text-xs mb-3">Nuestra Galería y Carta</h3>
+      <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">Nuestro Menú</h2>
+      <p class="text-white/60 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+        Descubre nuestras especialidades en la galería de fotos y haz clic en los botones para abrir la carta completa de 3 páginas en una pestaña nueva:
+      </p>
+    </div>
+
+    <!-- COMPACT FOOD PHOTO CAROUSEL SLIDER (Saves Vertical Space) -->
+    <div class="relative max-w-6xl mx-auto px-2 md:px-12 mb-14 reveal group" id="food-carousel">
+      <!-- Controls -->
+      <button onclick="prevFoodSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral/90 border border-tertiary/40 text-tertiary hover:bg-tertiary hover:text-neutral flex items-center justify-center transition-all duration-300 z-20 cursor-pointer shadow-xl hover:scale-110 active:scale-95" aria-label="Foto anterior">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button onclick="nextFoodSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral/90 border border-tertiary/40 text-tertiary hover:bg-tertiary hover:text-neutral flex items-center justify-center transition-all duration-300 z-20 cursor-pointer shadow-xl hover:scale-110 active:scale-95" aria-label="Siguiente foto">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      <!-- Slides Track -->
+      <div class="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+        <div class="flex transition-transform duration-700 ease-out" id="food-track">
+          
+          <!-- Slide 1 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4445.jpg" alt="Tacos & Platos Marrakech"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Tacos & Platos Especiales</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4441.jpg" alt="Taco Gratinado XXL"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Tacos Gratinados XXL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4444.jpg" alt="Hamburguesa Doble Halal"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Burger Doble Halal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4449.jpg" alt="Durum & Kebabs"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Durum & Kebabs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4442.jpg" alt="Batido Zaazaa"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Batido Zaazaa Especial</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4443.jpg" alt="Calzone al Horno"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Calzone Artesanal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4448.jpg" alt="Plato Falafel"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Plato Falafel & Ensalada</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4447.jpg" alt="Dulces Marroquíes"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Dulces Marroquíes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div class="w-full sm:w-1/2 md:w-1/3 shrink-0 p-2">
+            <div class="h-52 rounded-xl overflow-hidden relative group/img shadow-md border border-white/5">
+              <img class="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500" src="assets/food/IMG_4450.jpg" alt="Plato Especial Carne"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent opacity-80 flex items-end p-3.5">
+                <span class="text-white font-label font-bold text-xs uppercase tracking-wider">Plato Especial Marrakech</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Language buttons to open full menu in new tab -->
+    <div class="flex flex-row items-center justify-center gap-6 max-w-md mx-auto" id="menu-selection-buttons">
+      <a href="menu-es.html" target="_blank" class="inline-flex items-center gap-2.5 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-3.5 px-8 rounded-full shadow-xl shadow-tertiary/20 hover:shadow-tertiary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-sm uppercase tracking-widest cursor-pointer border border-tertiary/30">
+        Menú 🇪🇸
+      </a>
+      <a href="menu-en.html" target="_blank" class="inline-flex items-center gap-2.5 bg-transparent border-2 border-tertiary/60 text-tertiary hover:bg-tertiary hover:text-neutral font-label font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-sm uppercase tracking-widest cursor-pointer shadow-lg hover:shadow-tertiary/20">
+        Menu 🇬🇧
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Separador de Sección Bandera de Marruecos -->
+<div class="w-full flex items-center justify-center my-6 opacity-80 reveal">
+  <div class="w-[90%] max-w-5xl flex items-center justify-center relative">
+    <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 w-9 h-9 rounded-full bg-[#1A1210] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+      <svg class="w-5 h-5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CONTACTO, UBICACIÓN Y RESEÑAS               -->
+<!-- ============================================ -->
+<section class="py-20 md:py-28 bg-neutral relative" id="contacto">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-14 reveal">
+      <h3 class="font-label text-primary font-bold tracking-[0.25em] uppercase text-xs mb-3">Encuéntranos</h3>
+      <h2 class="font-headline text-4xl md:text-5xl font-bold text-white tracking-tight">Contacto y Ubicación</h2>
+    </div>
+    <!-- Three Columns -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-20 reveal">
+      <!-- Contact Info -->
+      <div class="space-y-6 bg-neutral-light p-7 rounded-2xl border border-white/5">
+        <h4 class="font-headline text-xl font-bold text-tertiary mb-4">Hacer un Pedido</h4>
+        <a class="flex items-center gap-4 w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 p-4 rounded-xl transition-all duration-300 border border-[#25D366]/20 group hover:-translate-y-1" href="https://wa.me/34632020209" id="btn-whatsapp" aria-label="Contactar por WhatsApp">
+          <div class="bg-[#25D366] p-2.5 rounded-full text-white shrink-0">
+            <span class="material-symbols-outlined">forum</span>
+          </div>
+          <div>
+            <p class="text-[10px] text-white/50 font-label uppercase tracking-[0.2em] mb-0.5">WhatsApp</p>
+            <p class="text-white font-headline font-bold text-lg group-hover:text-[#25D366] transition-colors">+34 632 02 02 09</p>
+          </div>
+        </a>
+        <a class="flex items-center gap-4 p-4 hover:bg-secondary/50 rounded-xl transition-all duration-300 group" href="tel:+34632020209" id="btn-llamar">
+          <div class="bg-secondary p-2.5 rounded-full text-primary shrink-0">
+            <span class="material-symbols-outlined">call</span>
+          </div>
+          <div>
+            <p class="text-[10px] text-white/50 font-label uppercase tracking-[0.2em] mb-0.5">Llamar</p>
+            <p class="text-white font-headline font-bold text-lg group-hover:text-primary transition-colors">+34 632 02 02 09</p>
+          </div>
+        </a>
+      </div>
+      <!-- Location / Map -->
+      <div class="space-y-4 bg-neutral-light p-7 rounded-2xl border border-white/5 flex flex-col justify-between">
+        <div>
+          <h4 class="font-headline text-xl font-bold text-tertiary mb-4">Ubicación</h4>
+          <div class="w-full h-48 md:h-56 rounded-xl overflow-hidden border border-white/10 relative group">
+            <iframe src="https://maps.google.com/maps?q=RESTAURANTE%20TACOS%20MARRAKECH%20Palma&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación oficial de RESTAURANTE TACOS MARRAKECH en Google Maps"></iframe>
+          </div>
+          <p class="text-white/80 font-body text-sm flex items-start gap-2 mt-4">
+            <span class="material-symbols-outlined text-tertiary shrink-0 text-lg">location_on</span>
+            <span><strong>RESTAURANTE TACOS MARRAKECH</strong><br/><span class="text-white/60 text-xs">Barri de Llevant, Palma de Mallorca, Illes Balears</span></span>
+          </p>
+        </div>
+        <a href="https://maps.app.goo.gl/xESVCnzc47WBKMDP9?g_st=ic" target="_blank" rel="noopener noreferrer" class="w-full mt-3 bg-white/5 hover:bg-tertiary/20 text-tertiary border border-tertiary/30 py-2.5 px-4 rounded-xl text-xs font-label font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5">
+          <span class="material-symbols-outlined text-sm">map</span>
+          Abrir en Google Maps
+        </a>
+      </div>
+      <!-- Hours -->
+      <div class="bg-neutral-light p-7 rounded-2xl border border-white/5 space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <h4 class="font-headline text-xl font-bold text-tertiary">Horario de Apertura</h4>
+          <span class="px-2.5 py-1 rounded-full bg-accent/15 text-accent font-label text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Abierto Hoy
+          </span>
+        </div>
+        <div class="space-y-2.5 font-body text-xs">
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Lunes</span>
+            <span class="text-white font-semibold">9:00 – 0:30</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Martes</span>
+            <span class="text-white font-semibold">9:00 – 23:30</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Miércoles</span>
+            <span class="text-white font-semibold">9:00 – 0:30</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Jueves</span>
+            <span class="text-white font-semibold">9:00 – 0:30</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Viernes</span>
+            <span class="text-white font-semibold">9:00 – 0:30</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-white/5">
+            <span class="text-white/70 font-medium">Sábado</span>
+            <span class="text-white font-semibold">9:00 – 1:00</span>
+          </div>
+          <div class="flex justify-between items-center py-1">
+            <span class="text-white/70 font-medium">Domingo</span>
+            <span class="text-white font-semibold">9:00 – 0:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Section (Autoplay Carousel Slider) -->
+    <div class="reveal pt-10" id="reviews-section">
+      <div class="text-center mb-10">
+        <h4 class="font-label text-primary font-bold tracking-[0.25em] uppercase text-xs mb-3">Lo que dicen nuestros clientes</h4>
+        <h3 class="font-headline text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Reseñas de Google</h3>
+        <div class="inline-flex items-center gap-2.5 bg-neutral-light border border-tertiary/30 px-5 py-2 rounded-full shadow-lg">
+          <div class="flex text-tertiary text-sm">
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+          </div>
+          <span class="font-label text-xs font-bold text-white tracking-wider">4.5 / 5 en Google Maps</span>
+        </div>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="relative max-w-4xl mx-auto px-4 md:px-12 group" id="reviews-carousel">
+        <!-- Controls -->
+        <button onclick="prevReviewSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral-light border border-white/10 text-white/70 hover:text-tertiary hover:border-tertiary/40 flex items-center justify-center transition-all duration-300 z-10 cursor-pointer shadow-lg hover:scale-110 active:scale-95" aria-label="Reseña anterior">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button onclick="nextReviewSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral-light border border-white/10 text-white/70 hover:text-tertiary hover:border-tertiary/40 flex items-center justify-center transition-all duration-300 z-10 cursor-pointer shadow-lg hover:scale-110 active:scale-95" aria-label="Siguiente reseña">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+
+        <!-- Slides Track -->
+        <div class="overflow-hidden rounded-2xl">
+          <div class="flex transition-transform duration-700 ease-out" id="reviews-track">
+            <!-- Review 1: yuk -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-6">"Son unos cracks. Super simpáticos, toda la comida buenísima y siempre te atienden con mucha amabilidad y buena onda. Me encanta venir a tomar té, dulces o takoo 💜💜"</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-label font-bold text-sm">Y</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">yuk</p>
+                    <p class="text-white/40 text-xs">Reseña en Google Maps · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2: Iris Mallorquini -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-3">"La comida buena. Bien decorado. Chicos simpáticos. El restaurante limpio. Y precios súper buenos."</p>
+                <p class="text-tertiary/70 text-xs mb-5 font-label">Comida: 5/5 · Servicio: 5/5 · Ambiente: 5/5</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-label font-bold text-sm">I</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">Iris Mallorquini</p>
+                    <p class="text-white/40 text-xs">39 reseñas en Palma · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3: Marta Cabanas -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-3">"Muy buen lugar para degustar auténtica cocina marroquí. Muy buen ambiente, luz tenue, música de fondo agradable y además muy buen precio. Comimos couscous, tajin y unos dulces marroquís de postre. ¡Super recomendable!"</p>
+                <p class="text-tertiary/70 text-xs mb-5 font-label">Comida: 5/5 · Servicio: 5/5 · Ambiente: 5/5</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-label font-bold text-sm">M</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">Marta Cabanas</p>
+                    <p class="text-white/40 text-xs">Local Guide · 14 reseñas · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4: Paula Rodriguez -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-3">"El camarero es súper simpático y atento, además de que la comida está espectacular de rica y calidad precio es increíble. Hay música árabe pero bajita. Para repetir sin lugar a dudas."</p>
+                <p class="text-tertiary/70 text-xs mb-5 font-label">Comida: 5/5 · Servicio: 5/5 · Ambiente: 5/5</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-label font-bold text-sm">P</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">Paula Rodriguez</p>
+                    <p class="text-white/40 text-xs">Local Guide · 16 reseñas · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 5: Lidia Rodríguez -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-3">"Un sitio excelente, la comida es espectacular y el trato de servicio perfecto. Estamos de vacaciones, vinimos a cenar y estamos repitiendo almuerzo."</p>
+                <p class="text-tertiary/70 text-xs mb-5 font-label">Comida: 5/5 · Servicio: 5/5 · Ambiente: 5/5</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-label font-bold text-sm">L</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">Lidia Rodríguez Albadalejo</p>
+                    <p class="text-white/40 text-xs">7 reseñas · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 6: Irina Lungu -->
+            <div class="w-full shrink-0 px-2">
+              <div class="bg-neutral-light p-8 md:p-10 rounded-2xl border border-white/5 hover:border-tertiary/20 transition-all duration-300 shadow-xl flex flex-col justify-between h-full min-h-[220px]">
+                <div class="flex items-center gap-1 mb-4">
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-3">"Very nice tacos, big size (we had beef and falafel) and mint tea. Clean and nice atmosphere. A hidden gem!"</p>
+                <p class="text-tertiary/70 text-xs mb-5 font-label">Food: 5/5 · Service: 5/5 · Atmosphere: 5/5</p>
+                <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-label font-bold text-sm">I</div>
+                  <div>
+                    <p class="text-white text-sm font-medium">Irina Lungu</p>
+                    <p class="text-white/40 text-xs">Local Guide · 77 reseñas · ★★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div class="flex justify-center gap-2 mt-6" id="review-dots">
+          <button onclick="setReviewSlide(0)" class="w-6 h-2.5 rounded-full bg-tertiary transition-all duration-300 cursor-pointer" aria-label="Reseña 1"></button>
+          <button onclick="setReviewSlide(1)" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Reseña 2"></button>
+          <button onclick="setReviewSlide(2)" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Reseña 3"></button>
+          <button onclick="setReviewSlide(3)" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Reseña 4"></button>
+          <button onclick="setReviewSlide(4)" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Reseña 5"></button>
+          <button onclick="setReviewSlide(5)" class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Reseña 6"></button>
+        </div>
+      </div>
+
+      <!-- CTA Button to Google Maps Reviews -->
+      <div class="text-center mt-10">
+        <a href="https://maps.app.goo.gl/xESVCnzc47WBKMDP9?g_st=ic" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-secondary/80 hover:bg-tertiary hover:text-neutral text-tertiary border border-tertiary/30 py-4 px-8 rounded-full text-xs font-label font-bold uppercase tracking-wider transition-all duration-300 hover:-translate-y-1 shadow-xl group cursor-pointer">
+          <span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">rate_review</span>
+          Seguir leyendo más reseñas en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Separador de Sección Bandera de Marruecos -->
+<div class="w-full flex items-center justify-center my-6 opacity-80 reveal">
+  <div class="w-[90%] max-w-5xl flex items-center justify-center relative">
+    <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 w-9 h-9 rounded-full bg-[#1A1210] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+      <svg class="w-5 h-5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER                                       -->
+<!-- ============================================ -->
+<footer class="bg-secondary w-full py-16 border-t border-white/5 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-center mb-12">
+      
+      <!-- LEFT COLUMN: Privacidad y Términos -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-3">
+        <h5 class="font-label text-xs uppercase tracking-[0.25em] text-tertiary font-bold mb-1">Legales & Privacidad</h5>
+        <div class="flex flex-col gap-2.5 font-label text-xs">
+          <a class="text-white/60 hover:text-tertiary transition-colors cursor-pointer" onclick="openLegalModal('privacidad')">Política de Privacidad</a>
+          <a class="text-white/60 hover:text-tertiary transition-colors cursor-pointer" onclick="openLegalModal('terminos')">Términos y Condiciones</a>
+          <a class="text-white/60 hover:text-tertiary transition-colors cursor-pointer" onclick="openLegalModal('legal')">Aviso Legal & Cookies</a>
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN: Rounded Logo + Brand Info -->
+      <div class="flex flex-col items-center text-center space-y-3">
+        <a href="#inicio" aria-label="Inicio" class="group transition-transform hover:scale-105">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-tertiary/40 p-1 bg-secondary shadow-2xl flex items-center justify-center group-hover:border-tertiary transition-colors">
+            <img src="assets/logo.png" alt="Logo Tacos Marrakech" class="w-full h-full object-cover rounded-full" />
+          </div>
+        </a>
+        <div>
+          <h4 class="font-headline font-bold text-lg text-tertiary tracking-tight">Tacos Marrakech</h4>
+          <p class="text-white/50 text-xs font-label">Auténtica Fusión Marroquí · Palma de Mallorca</p>
+        </div>
+        <!-- Social Icons -->
+        <div class="flex gap-3 pt-1">
+          <a class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300 shadow-md" href="https://www.instagram.com/tacos.marrakech?igsh=eTBnMTVqNHN0YzQy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300 shadow-md" href="https://www.tiktok.com/@restaurantesmarrakech?_r=1&_t=ZN-98FHc36t8JK" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.17.74.87 1.7 1.54 2.76 1.93.02 1.27-.04 2.53-.02 3.8-.97-.08-1.92-.37-2.77-.87-.8-.47-1.48-1.13-1.99-1.92v6.3c-.02 2.1-.82 4.17-2.28 5.67-1.52 1.56-3.67 2.45-5.9 2.4-2.56-.05-5.01-1.3-6.42-3.48-1.49-2.3-1.64-5.26-.38-7.7 1.2-2.33 3.6-3.87 6.22-3.96V10.2c-1.3.1-2.49.88-3.07 2.05-.62 1.25-.56 2.83.17 4.02.73 1.2 2.04 1.95 3.44 1.92 1.4-.03 2.65-.87 3.13-2.2.14-.37.19-.77.18-1.17V0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Navegación -->
+      <div class="flex flex-col items-center md:items-end text-center md:text-right space-y-3">
+        <h5 class="font-label text-xs uppercase tracking-[0.25em] text-tertiary font-bold mb-1">Navegación</h5>
+        <div class="flex flex-col gap-2.5 font-label text-xs">
+          <a class="text-white/60 hover:text-tertiary transition-colors" href="#inicio">Inicio</a>
+          <a class="text-white/60 hover:text-tertiary transition-colors" href="#nosotros">Sobre Nosotros</a>
+          <a class="text-white/60 hover:text-tertiary transition-colors" href="#menu-selection-buttons">Menú & Carta Digital</a>
+          <a class="text-white/60 hover:text-tertiary transition-colors" href="#contacto">Ubicación & Reservas</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR WITH MYNEXT CREDITS -->
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-body">
+      <p>© 2025 RESTAURANTE TACOS MARRAKECH · Palma de Mallorca. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-1.5 font-label">
+        <span>Diseñado y desarrollado por</span>
+        <a href="https://mynextbymusa.com" target="_blank" rel="noopener noreferrer" class="text-tertiary hover:text-primary font-bold transition-colors inline-flex items-center gap-1 group">
+          <span class="underline underline-offset-4 group-hover:text-primary">MyNext</span>
+          <span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- SCRIPTS                                      -->
+<!-- ============================================ -->
+<script>
+  // === GSAP ANIMATIONS (motion-design skill) ===
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero title blur-reveal stagger
+  gsap.from('#hero-title', {
+    opacity: 0,
+    y: 60,
+    filter: 'blur(12px)',
+    duration: 1.4,
+    ease: 'power3.out',
+    delay: 0.3
+  });
+
+  // Reveal sections on scroll with stagger
+  gsap.utils.toArray('.reveal').forEach((el, i) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0,
+      y: 50,
+      filter: 'blur(6px)',
+      duration: 0.9,
+      ease: 'power3.out',
+      delay: i % 3 * 0.1
+    });
+  // === NAVBAR SCROLL EFFECT ===
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // === MOBILE MENU ===
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+  // === ACTIVE NAV LINK ON SCROLL ===
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('text-tertiary', 'border-b-2', 'border-tertiary');
+      link.classList.add('text-white/70');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('text-tertiary', 'border-b-2', 'border-tertiary');
+        link.classList.remove('text-white/70');
+      }
+    });
+  });
+</script>
+
+<!-- RESERVATION MODAL                            -->
+<!-- ============================================ -->
+<div id="reservation-modal" class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center p-4">
+  <div class="w-full max-w-lg bg-neutral border border-tertiary/30 rounded-3xl overflow-hidden shadow-2xl relative">
+    <!-- Header -->
+    <div class="flex justify-between items-center px-6 py-5 border-b border-white/10 bg-secondary/90">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-xl">table_restaurant</span>
+        </div>
+        <div>
+          <h4 class="font-headline font-bold text-white text-lg leading-tight">Reservar Mesa</h4>
+          <p class="text-white/50 text-xs font-label">Tacos Marrakech · Palma</p>
+        </div>
+      </div>
+      <button onclick="closeReservationModal()" class="text-white/70 hover:text-primary transition-colors p-1" aria-label="Cerrar modal">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    
+    <!-- Form -->
+    <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="p-6 space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Nombre -->
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Nombre y Apellidos *</label>
+          <input type="text" id="res-name" required placeholder="Ej. Juan Pérez" class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" />
+        </div>
+        <!-- Personas -->
+        <div>
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Nº de Personas *</label>
+          <select id="res-people" required class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors">
+            <option value="1 persona">1 persona</option>
+            <option value="2 personas" selected>2 personas</option>
+            <option value="3 personas">3 personas</option>
+            <option value="4 personas">4 personas</option>
+            <option value="5 personas">5 personas</option>
+            <option value="6+ personas">6 o más personas</option>
+          </select>
+        </div>
+        <!-- Fecha -->
+        <div>
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Fecha *</label>
+          <input type="date" id="res-date" required class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" />
+        </div>
+        <!-- Hora -->
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Hora Aproximada *</label>
+          <input type="time" id="res-time" required class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" />
+        </div>
+        <!-- Alergias -->
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Alergias o Intolerancias</label>
+          <input type="text" id="res-allergies" placeholder="Ej. Frutos secos, gluten, lactosa (opcional)" class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" />
+        </div>
+        <!-- Peticiones Especiales -->
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-label font-bold text-tertiary uppercase tracking-wider mb-1.5">Petición Especial / Comentarios</label>
+          <textarea id="res-notes" rows="2" placeholder="Ej. Trona para bebé, mesa en terraza (opcional)" class="w-full bg-neutral-light border border-white/10 focus:border-tertiary rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors resize-none"></textarea>
+        </div>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-label font-bold py-4 px-6 rounded-2xl transition-all duration-300 shadow-xl shadow-[#25D366]/20 flex items-center justify-center gap-3 uppercase tracking-wider text-xs mt-2 group cursor-pointer">
+        <span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">forum</span>
+        Enviar Reserva por WhatsApp
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // === MOBILE MENU TOGGLE ===
+  function openMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn) mobileBtn.addEventListener('click', openMobileMenu);
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenu) {
+      mobileMenu.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+    }
+  });
+
+  // === RESERVATION MODAL FUNCTIONS ===
+  function openReservationModal() {
+    const modal = document.getElementById('reservation-modal');
+    const dateInput = document.getElementById('res-date');
+    if (dateInput && !dateInput.value) {
+      dateInput.value = new Date().toISOString().split('T')[0];
+    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeReservationModal() {
+    const modal = document.getElementById('reservation-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function handleReservationSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById('res-name').value;
+    const people = document.getElementById('res-people').value;
+    const date = document.getElementById('res-date').value;
+    const time = document.getElementById('res-time').value;
+    const allergies = document.getElementById('res-allergies').value.trim();
+    const notes = document.getElementById('res-notes').value.trim();
+
+    const msg = `Hola! Me gustaría hacer una reserva en Tacos Marrakech:\n\n👤 *Nombre:* ${name}\n👥 *Personas:* ${people}\n📅 *Fecha:* ${date}\n⏰ *Hora:* ${time}\n⚠️ *Alergias:* ${allergies || 'Ninguna'}\n📝 *Petición especial:* ${notes || 'Ninguna'}`;
+
+    const waUrl = `https://wa.me/34632020209?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+    closeReservationModal();
+  }
+  // === HISTORY CAROUSEL (Autoplay) ===
+  let historySlideIndex = 0;
+  let historyInterval;
+
+  function showHistorySlide(index) {
+    const slides = document.querySelectorAll('#history-carousel .carousel-slide');
+    const dots = document.querySelectorAll('#carousel-dots button');
+    if (!slides.length) return;
+
+    historySlideIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      if (i === historySlideIndex) {
+        slide.classList.remove('opacity-0');
+        slide.classList.add('opacity-100');
+      } else {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === historySlideIndex) {
+        dot.classList.remove('bg-white/40');
+        dot.classList.add('bg-tertiary', 'w-6');
+      } else {
+        dot.classList.remove('bg-tertiary', 'w-6');
+        dot.classList.add('bg-white/40');
+      }
+    });
+  }
+
+  function setHistorySlide(index) {
+    showHistorySlide(index);
+    resetHistoryInterval();
+  }
+
+  function nextHistorySlide() {
+    showHistorySlide(historySlideIndex + 1);
+  }
+
+  function resetHistoryInterval() {
+    clearInterval(historyInterval);
+    historyInterval = setInterval(nextHistorySlide, 3500);
+  }
+
+  showHistorySlide(0);
+  resetHistoryInterval();
+  // === REVIEWS CAROUSEL (Autoplay + Controls + Pause on Hover) ===
+  let reviewSlideIndex = 0;
+  let reviewInterval;
+
+  function updateReviewSlide() {
+    const track = document.getElementById('reviews-track');
+    const dots = document.querySelectorAll('#review-dots button');
+    if (!track) return;
+
+    const totalSlides = track.children.length;
+    reviewSlideIndex = (reviewSlideIndex + totalSlides) % totalSlides;
+
+    track.style.transform = `translateX(-${reviewSlideIndex * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      if (i === reviewSlideIndex) {
+        dot.classList.remove('bg-white/30');
+        dot.classList.add('bg-tertiary', 'w-6');
+      } else {
+        dot.classList.remove('bg-tertiary', 'w-6');
+        dot.classList.add('bg-white/30');
+      }
+    });
+  }
+
+  function setReviewSlide(index) {
+    reviewSlideIndex = index;
+    updateReviewSlide();
+    resetReviewInterval();
+  }
+
+  function nextReviewSlide() {
+    reviewSlideIndex++;
+    updateReviewSlide();
+  }
+
+  function prevReviewSlide() {
+    reviewSlideIndex--;
+    updateReviewSlide();
+  }
+
+  function resetReviewInterval() {
+    clearInterval(reviewInterval);
+    reviewInterval = setInterval(nextReviewSlide, 4500);
+  }
+
+  // === ACTIVE NAV LINK HIGHLIGHT ON SCROLL ===
+  const sectionEls = document.querySelectorAll('section[id]');
+  const desktopLinks = document.querySelectorAll('#desktop-nav-links a');
+
+  function updateActiveNav() {
+    let currentId = 'inicio';
+    const scrollPos = window.scrollY + 200;
+
+    sectionEls.forEach(sec => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    desktopLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      if (href === currentId) {
+        link.classList.remove('text-white/70');
+        link.classList.add('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-1');
+      } else {
+        link.classList.remove('text-tertiary', 'border-b-2', 'border-tertiary', 'pb-1');
+        link.classList.add('text-white/70');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+
+  // === LEGAL MODAL FUNCTIONS ===
+  const legalData = {
+    privacidad: {
+      title: 'Política de Privacidad',
+      text: '<p>En RESTAURANTE TACOS MARRAKECH (Palma de Mallorca) respetamos tu privacidad. Los datos facilitados para reservas o contacto solo se procesan para gestionar tu solicitud y comunicarte la confirmación vía WhatsApp o teléfono.</p><p>No cedemos tus datos a terceros ni comercializamos con ellos. Puedes ejercer tus derechos de acceso, rectificación y cancelación contactándonos directamente en el local o al +34 632 02 02 09.</p>'
+    },
+    terminos: {
+      title: 'Términos y Condiciones',
+      text: '<p>Las reservas realizadas a través de la web están sujetas a disponibilidad y confirmación del establecimiento.</p><p>Todos nuestros productos gastronómicos se elaboran bajo estrictos controles sanitarios e ingredientes 100% Halal. Para cualquier alergia o intolerancia, informe por favor al personal en su reserva.</p>'
+    },
+    legal: {
+      title: 'Aviso Legal & Cookies',
+      text: '<p>Este sitio web utiliza cookies técnicas para garantizar el correcto funcionamiento de la navegación y reproductor de la carta digital.</p><p>Titular: RESTAURANTE TACOS MARRAKECH, Barri de Llevant, Palma de Mallorca, Illes Balears. Teléfono: +34 632 02 02 09.</p>'
+    }
+  };
+
+  function openLegalModal(type) {
+    const modal = document.getElementById('legal-modal');
+    const title = document.getElementById('legal-modal-title');
+    const content = document.getElementById('legal-modal-content');
+
+    const item = legalData[type] || legalData.privacidad;
+    title.innerText = item.title;
+    content.innerHTML = item.text;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // === FOOD PHOTO CAROUSEL (Compact) ===
+  let foodSlideIndex = 0;
+  let foodInterval;
+
+  function updateFoodSlide() {
+    const track = document.getElementById('food-track');
+    if (!track) return;
+
+    const isMobile = window.innerWidth < 640;
+    const isTablet = window.innerWidth >= 640 && window.innerWidth < 768;
+    const visibleCards = isMobile ? 1 : (isTablet ? 2 : 3);
+    const cardWidthPercent = 100 / visibleCards;
+    const maxIndex = track.children.length - visibleCards;
+
+    if (foodSlideIndex > maxIndex) foodSlideIndex = 0;
+    if (foodSlideIndex < 0) foodSlideIndex = maxIndex;
+
+    track.style.transform = `translateX(-${foodSlideIndex * cardWidthPercent}%)`;
+  }
+
+  function nextFoodSlide() {
+    foodSlideIndex++;
+    updateFoodSlide();
+  }
+
+  function prevFoodSlide() {
+    foodSlideIndex--;
+    updateFoodSlide();
+  }
+
+  function resetFoodInterval() {
+    clearInterval(foodInterval);
+    foodInterval = setInterval(nextFoodSlide, 3500);
+  }
+
+  const foodCarouselEl = document.getElementById('food-carousel');
+  if (foodCarouselEl) {
+    foodCarouselEl.addEventListener('mouseenter', () => clearInterval(foodInterval));
+    foodCarouselEl.addEventListener('mouseleave', resetFoodInterval);
+  }
+
+  window.addEventListener('resize', updateFoodSlide);
+  resetFoodInterval();
+</script>
+</body>
+</html>
+
+<!-- ============================================ -->
+<!-- LEGAL MODAL CONTAINER                        -->
+<!-- ============================================ -->
+<div id="legal-modal" class="fixed inset-0 z-[115] bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center p-4">
+  <div class="w-full max-w-lg bg-neutral border border-tertiary/30 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[85vh]">
+    <div class="flex justify-between items-center px-6 py-4 border-b border-white/10 bg-secondary/90 shrink-0">
+      <h4 class="font-headline font-bold text-tertiary text-lg" id="legal-modal-title">Aviso Legal</h4>
+      <button onclick="closeLegalModal()" class="text-white/70 hover:text-primary transition-colors p-1 cursor-pointer" aria-label="Cerrar modal">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    <div class="p-6 overflow-y-auto space-y-4 text-white/70 text-sm leading-relaxed font-body" id="legal-modal-content">
+      <!-- Dynamic content -->
+    </div>
+  </div>
+</div>
+</body>
+</html>

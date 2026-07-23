@@ -169,6 +169,7 @@
     <div class="hidden md:flex items-center gap-8 font-label text-sm font-semibold tracking-wider uppercase" id="desktop-nav-links">
       <a class="text-tertiary border-b-2 border-tertiary pb-1 transition-all duration-300" href="#inicio">Inicio</a>
       <a class="text-white/70 hover:text-primary transition-all duration-300" href="#nosotros">Sobre Nosotros</a>
+      <a class="text-white/70 hover:text-primary transition-all duration-300" href="#donde-estamos">Dónde Estamos</a>
       <a class="text-white/70 hover:text-primary transition-all duration-300" href="#menu-selection-buttons">Menú</a>
       <a class="text-white/70 hover:text-primary transition-all duration-300" href="#contacto">Contacto</a>
     </div>
@@ -216,6 +217,7 @@
   <div class="flex flex-col items-center gap-5 mt-2 mb-2">
     <a class="font-headline text-2xl font-extrabold text-gold-gradient tracking-widest uppercase" href="#inicio" onclick="closeMobileMenu()">Inicio</a>
     <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#nosotros" onclick="closeMobileMenu()">Sobre Nosotros</a>
+    <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#donde-estamos" onclick="closeMobileMenu()">Dónde Estamos</a>
     <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#menu-selection-buttons" onclick="closeMobileMenu()">Menú</a>
     <a class="font-headline text-2xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest" href="#contacto" onclick="closeMobileMenu()">Contacto</a>
   </div>
@@ -391,6 +393,105 @@
 </div>
 
 <!-- ============================================ -->
+<!-- DÓNDE ESTAMOS SECTION                        -->
+<!-- ============================================ -->
+<section class="py-20 md:py-28 bg-neutral relative" id="donde-estamos">
+  <div class="absolute inset-0 moroccan-pattern opacity-5 mix-blend-overlay"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16 reveal">
+      <h3 class="font-label text-primary font-bold tracking-[0.25em] uppercase text-xs mb-3">Nuestras Tiendas</h3>
+      <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">Dónde Estamos</h2>
+      <p class="text-white/60 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+        Disfruta de la auténtica cocina marroquí en cualquiera de nuestros tres locales en Palma de Mallorca. ¡Te esperamos!
+      </p>
+    </div>
+
+    <!-- TKO-inspired Arched Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto reveal">
+      
+      <!-- Store 1: Pedro Garau -->
+      <div class="flex flex-col items-center group">
+        <!-- Arch Image Frame -->
+        <div class="w-full h-80 rounded-t-full overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-light">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="assets/fotos del escaparate/peregaraulocal.webp" alt="Tacos Marrakech - Pedro Garau"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral via-neutral/20 to-transparent opacity-60"></div>
+        </div>
+        <!-- Card Info -->
+        <div class="pt-6 text-center">
+          <span class="text-xs text-primary font-label uppercase tracking-[0.2em] font-extrabold mb-2 block">Pere Garau</span>
+          <h3 class="font-headline text-lg font-bold text-white mb-3 tracking-wide leading-snug">Plaza de Pere Garau, 18</h3>
+          <p class="text-xs text-white/50 mb-5 leading-relaxed max-w-[280px] mx-auto">
+            Ubicado en el corazón del dinámico barrio de Pere Garau. Local climatizado, servicio rápido y ambiente familiar.
+          </p>
+          <a href="https://maps.google.com/?q=Plaza+de+Pere+Garau+18+Palma" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-2.5 px-6 rounded-full shadow-lg shadow-tertiary/10 hover:shadow-tertiary/30 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 text-[10px] uppercase tracking-widest border border-tertiary/20">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            Ver en Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 2: Capità Vila -->
+      <div class="flex flex-col items-center group">
+        <!-- Arch Image Frame -->
+        <div class="w-full h-80 rounded-t-full overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-light">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="assets/hero/hero_real_vibrant.jpg" alt="Tacos Marrakech - Capità Vila"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral via-neutral/20 to-transparent opacity-60"></div>
+        </div>
+        <!-- Card Info -->
+        <div class="pt-6 text-center">
+          <span class="text-xs text-primary font-label uppercase tracking-[0.2em] font-extrabold mb-2 block">Capità Vila</span>
+          <h3 class="font-headline text-lg font-bold text-white mb-3 tracking-wide leading-snug">Carrer de Capità Vila, 14</h3>
+          <p class="text-xs text-white/50 mb-5 leading-relaxed max-w-[280px] mx-auto">
+            Disfruta de nuestros famosos French Tacos XXL gratinados en nuestro acogedor local de la calle Capità Vila.
+          </p>
+          <a href="https://maps.google.com/?q=Carrer+de+Capita+Vila+14+Palma" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-2.5 px-6 rounded-full shadow-lg shadow-tertiary/10 hover:shadow-tertiary/30 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 text-[10px] uppercase tracking-widest border border-tertiary/20">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            Ver en Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 3: Barceló i Combis -->
+      <div class="flex flex-col items-center group">
+        <!-- Arch Image Frame -->
+        <div class="w-full h-80 rounded-t-full overflow-hidden border border-white/10 shadow-2xl relative bg-neutral-light">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="assets/hero/IMG_4446.jpg" alt="Tacos Marrakech - Barceló i Combis"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral via-neutral/20 to-transparent opacity-60"></div>
+        </div>
+        <!-- Card Info -->
+        <div class="pt-6 text-center">
+          <span class="text-xs text-primary font-label uppercase tracking-[0.2em] font-extrabold mb-2 block">Llevant</span>
+          <h3 class="font-headline text-lg font-bold text-white mb-3 tracking-wide leading-snug">Francesc Barceló i Combis, 4</h3>
+          <p class="text-xs text-white/50 mb-5 leading-relaxed max-w-[280px] mx-auto">
+            Nuestra tienda original. El rincón perfecto para probar deliciosos dulces tradicionales y té moruno artesano.
+          </p>
+          <a href="https://maps.google.com/?q=Carrer+Francesc+Barcelo+i+Combis+4+Palma" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-2.5 px-6 rounded-full shadow-lg shadow-tertiary/10 hover:shadow-tertiary/30 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 text-[10px] uppercase tracking-widest border border-tertiary/20">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            Ver en Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Separador de Sección Bandera de Marruecos -->
+<div class="w-full flex items-center justify-center my-6 opacity-80 reveal">
+  <div class="w-[90%] max-w-5xl flex items-center justify-center relative">
+    <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 w-9 h-9 rounded-full bg-[#1A1210] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+      <svg class="w-5 h-5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
 <!-- MENÚ SECTION                                 -->
 <!-- ============================================ -->
 <section class="py-20 md:py-28 bg-neutral-light relative" id="menu">
@@ -515,14 +616,15 @@
       </div>
     </div>
 
-    <!-- Language buttons to open full menu in new tab -->
-    <div class="flex flex-row items-center justify-center gap-6 max-w-md mx-auto" id="menu-selection-buttons">
-      <a href="menu-es.html" target="_blank" class="inline-flex items-center gap-2.5 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-3.5 px-8 rounded-full shadow-xl shadow-tertiary/20 hover:shadow-tertiary/50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-sm uppercase tracking-widest cursor-pointer border border-tertiary/30">
-        Menú 🇪🇸
+    <!-- Unified button to open full menu in new tab -->
+    <div class="flex flex-col items-center justify-center gap-4 max-w-lg mx-auto scroll-mt-36" id="menu-selection-buttons">
+      <a href="menu.html" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary via-orange-500 to-tertiary text-white font-label font-extrabold py-4 px-10 rounded-full shadow-2xl shadow-primary/30 hover:shadow-primary/60 transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-base md:text-lg uppercase tracking-widest cursor-pointer border border-primary/20 group">
+        <span class="material-symbols-outlined text-xl md:text-2xl animate-pulse">menu_book</span>
+        Ver Carta Digital / View Menu
       </a>
-      <a href="menu-en.html" target="_blank" class="inline-flex items-center gap-2.5 bg-transparent border-2 border-tertiary/60 text-tertiary hover:bg-tertiary hover:text-neutral font-label font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 hover:-translate-y-1 hover:scale-105 text-sm uppercase tracking-widest cursor-pointer shadow-lg hover:shadow-tertiary/20">
-        Menu 🇬🇧
-      </a>
+      <p class="text-white/40 text-[10px] md:text-xs font-label uppercase tracking-[0.2em] text-center mt-1">
+        Disponible en Español 🇪🇸 • English 🇬🇧 • Français 🇫🇷
+      </p>
     </div>
 
   </div>

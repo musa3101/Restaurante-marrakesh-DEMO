@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+  <title>Carta Digital | Tacos Marrakech</title>
+  <meta name="description" content="Carta digital oficial de Tacos Marrakech. Consulta nuestros deliciosos platos en español, inglés y francés."/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        DEFAULT: '#C4632A',
+                        hover: '#A35222'
+                    },
+                    secondary: {
+                        DEFAULT: '#3B2314',
+                        light: '#4A2C19'
+                    },
+                    tertiary: {
+                        DEFAULT: '#D4A84B',
+                        hover: '#C2983F'
+                    },
+                    accent: {
+                        DEFAULT: '#4CAF7D'
+                    },
+                    neutral: {
+                        DEFAULT: '#0A0706',
+                        light: '#1A1210',
+                        lighter: '#2A1D1A'
+                    }
+                },
+                fontFamily: {
+                    "headline": ["Cinzel", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Outfit", "sans-serif"]
+                }
+            }
+        }
+    }
+  </script>
+
+  <style>
+    /* Moroccan pattern opacity */
+    .moroccan-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zM30 10L10 30L30 50L50 30L30 10z' fill='%23D4A84B' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    /* Custom Gold Text Gradient */
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #FFF0CA 0%, #F5C767 40%, #D4A84B 70%, #B8852B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    body {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Active language selector state */
+    .lang-btn.active {
+        background-color: #D4A84B;
+        color: #0A0706;
+        box-shadow: 0 4px 15px rgba(212, 168, 75, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-neutral text-white font-body min-h-screen relative flex flex-col pb-12">
+  
+  <div class="absolute inset-0 moroccan-pattern opacity-10 pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-neutral/95 backdrop-blur-md border-b border-white/5 h-[76px] px-4 shadow-lg flex items-center">
+    <div class="w-full max-w-4xl mx-auto relative flex items-center justify-center">
+      <!-- Back Link -->
+      <a href="index.html" class="absolute left-0 flex items-center gap-1 text-white/70 hover:text-tertiary transition-colors group text-xs font-label uppercase tracking-widest">
+        <span class="material-symbols-outlined text-base transition-transform group-hover:-translate-x-0.5">arrow_back</span>
+        <span data-i18n="back">Inicio</span>
+      </a>
+
+      <!-- Brand Logo/Title -->
+      <div class="text-center px-12">
+        <h1 class="font-headline font-bold text-base sm:text-lg md:text-xl text-gold-gradient tracking-[0.2em] uppercase leading-tight">Tacos Marrakech</h1>
+        <p class="text-[9px] font-label text-white/40 tracking-[0.25em] uppercase mt-0.5" data-i18n="subtitle">Carta Digital</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Language Bar -->
+  <div class="sticky top-[76px] z-20 bg-neutral-light/95 border-b border-white/5 py-3 px-4 shadow-md h-[56px] flex items-center">
+    <div class="max-w-md w-full mx-auto flex justify-between gap-3">
+      <button onclick="setLanguage('es')" id="btn-lang-es" class="lang-btn active flex-1 py-1.5 px-3 rounded-xl border border-white/5 hover:border-tertiary/40 flex items-center justify-center gap-2 font-label text-xs uppercase font-extrabold tracking-wider transition-all duration-300">
+        <span>🇪🇸</span> ES
+      </button>
+      <button onclick="setLanguage('en')" id="btn-lang-en" class="lang-btn flex-1 py-1.5 px-3 rounded-xl border border-white/5 hover:border-tertiary/40 flex items-center justify-center gap-2 font-label text-xs uppercase font-extrabold tracking-wider transition-all duration-300">
+        <span>🇬🇧</span> EN
+      </button>
+      <button onclick="setLanguage('fr')" id="btn-lang-fr" class="lang-btn flex-1 py-1.5 px-3 rounded-xl border border-white/5 hover:border-tertiary/40 flex items-center justify-center gap-2 font-label text-xs uppercase font-extrabold tracking-wider transition-all duration-300">
+        <span>🇫🇷</span> FR
+      </button>
+    </div>
+  </div>
+
+  <!-- Page Navigation Helper -->
+  <div class="mt-4 px-4 sticky top-[132px] z-10">
+    <div class="max-w-md mx-auto bg-neutral-light/90 backdrop-blur-md border border-white/10 rounded-full p-1 flex justify-between text-xs font-label text-white/60 shadow-lg">
+      <button onclick="scrollToPage(1)" class="page-nav-btn flex-1 py-1.5 rounded-full hover:text-white transition-all text-center font-bold" data-page="1">
+        <span data-i18n="page1-name">Portada</span>
+      </button>
+      <button onclick="scrollToPage(2)" class="page-nav-btn flex-1 py-1.5 rounded-full hover:text-white transition-all text-center font-bold" data-page="2">
+        <span data-i18n="page2-name">Desayunos y Platos</span>
+      </button>
+      <button onclick="scrollToPage(3)" class="page-nav-btn flex-1 py-1.5 rounded-full hover:text-white transition-all text-center font-bold" data-page="3">
+        <span data-i18n="page3-name">Pinchitos y Más</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content - Menu Images -->
+  <main class="flex-1 max-w-2xl mx-auto px-4 mt-8 w-full flex flex-col gap-8 md:gap-10">
+    <!-- Page 1 -->
+    <div id="page-container-1" class="relative group scroll-mt-52">
+      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p1-label">
+        Portada
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
+        <img id="img-menu-1" src="assets/menu_nuevo/es/pagina_1.webp" alt="Carta Tacos Marrakech - Página 1" class="w-full h-auto block select-none" loading="eager">
+      </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page-container-2" class="relative group scroll-mt-52">
+      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p2-label">
+        Página 2
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
+        <img id="img-menu-2" src="assets/menu_nuevo/es/pagina_2.webp" alt="Carta Tacos Marrakech - Página 2" class="w-full h-auto block select-none" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page-container-3" class="relative group scroll-mt-52">
+      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p3-label">
+        Página 3
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
+        <img id="img-menu-3" src="assets/menu_nuevo/es/pagina_3.webp" alt="Carta Tacos Marrakech - Página 3" class="w-full h-auto block select-none" loading="lazy">
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Floating Zoom Instruction -->
+  <div class="text-center mt-6 mb-8 text-xs text-white/40 px-4">
+    <span class="material-symbols-outlined align-middle text-sm mr-1">zoom_in</span>
+    <span data-i18n="zoom-hint">Puedes ampliar las imágenes pellizcando la pantalla o tocándolas dos veces.</span>
+  </div>
+
+
+
+  <!-- Script Translation & Interactivity -->
+  <script>
+    const translations = {
+      es: {
+        back: "Inicio",
+        subtitle: "Carta Digital",
+        download: "Descargar PDF",
+        "page1-name": "Portada",
+        "page2-name": "Desayunos y Platos",
+        "page3-name": "Pinchitos y Más",
+        "p1-label": "Portada",
+        "p2-label": "Desayunos, Tacos, Pizza",
+        "p3-label": "Pinchitos, Carnes, Bebidas",
+        "zoom-hint": "Puedes ampliar las imágenes pellizcando la pantalla o tocándolas dos veces.",
+        "order-wa": "Pedir Online",
+        call: "Llamar",
+        "map-btn": "Ubicación"
+      },
+      en: {
+        back: "Home",
+        subtitle: "Digital Menu",
+        download: "Download PDF",
+        "page1-name": "Cover",
+        "page2-name": "Breakfast & Mains",
+        "page3-name": "Skewers & More",
+        "p1-label": "Cover",
+        "p2-label": "Breakfast, Tacos, Pizza",
+        "p3-label": "Skewers, Meats, Drinks",
+        "zoom-hint": "You can zoom in by pinch-to-zoom or double-tapping the images.",
+        "order-wa": "Order Online",
+        call: "Call Us",
+        "map-btn": "Directions"
+      },
+      fr: {
+        back: "Accueil",
+        subtitle: "Carte Digitale",
+        download: "Télécharger PDF",
+        "page1-name": "Couverture",
+        "page2-name": "Petits Déj & Plats",
+        "page3-name": "Brochettes & Plus",
+        "p1-label": "Couverture",
+        "p2-label": "Petits Déjeuners, Tacos, Pizza",
+        "p3-label": "Brochettes, Viandes, Boissons",
+        "zoom-hint": "Vous pouvez zoomer en pinçant l'écran ou en double-cliquant sur les images.",
+        "order-wa": "Commander Online",
+        call: "Appeler",
+        "map-btn": "Directions"
+      }
+    };
+
+    let currentLang = 'es';
+
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = 'es';
+      currentLang = lang;
+
+      // Update URL search parameter silently
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+
+      // Toggle active states on language selector buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-lang-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update UI texts
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update Images
+      document.getElementById('img-menu-1').src = `assets/menu_nuevo/${lang}/pagina_1.webp`;
+      document.getElementById('img-menu-2').src = `assets/menu_nuevo/${lang}/pagina_2.webp`;
+      document.getElementById('img-menu-3').src = `assets/menu_nuevo/${lang}/pagina_3.webp`;
+      
+      // Update alt tags
+      const langNames = { es: "Español", en: "English", fr: "Français" };
+      document.getElementById('img-menu-1').alt = `Tacos Marrakech Menu (${langNames[lang]}) - Page 1`;
+      document.getElementById('img-menu-2').alt = `Tacos Marrakech Menu (${langNames[lang]}) - Page 2`;
+      document.getElementById('img-menu-3').alt = `Tacos Marrakech Menu (${langNames[lang]}) - Page 3`;
+
+      highlightActiveNavButtonOnScroll();
+    }
+
+    function scrollToPage(pageNum) {
+      const container = document.getElementById(`page-container-${pageNum}`);
+      if (container) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Initialize from URL param, browser setting, or default to Spanish
+    function init() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      
+      if (urlLang && translations[urlLang]) {
+        setLanguage(urlLang);
+      } else {
+        const browserLang = navigator.language || navigator.userLanguage;
+        const shortLang = browserLang.substring(0, 2).toLowerCase();
+        if (translations[shortLang]) {
+          setLanguage(shortLang);
+        } else {
+          setLanguage('es');
+        }
+      }
+    }
+
+    // Scroll spy to highlight active sub-navigation page tabs
+    function highlightActiveNavButtonOnScroll() {
+      const scrollPos = window.scrollY + 250;
+      let activePage = 1;
+
+      for (let i = 1; i <= 3; i++) {
+        const el = document.getElementById(`page-container-${i}`);
+        if (el && scrollPos >= el.offsetTop) {
+          activePage = i;
+        }
+      }
+
+      document.querySelectorAll('.page-nav-btn').forEach(btn => {
+        const btnPage = parseInt(btn.getAttribute('data-page'));
+        if (btnPage === activePage) {
+          btn.classList.add('bg-primary', 'text-white', 'shadow-md');
+          btn.classList.remove('text-white/60');
+        } else {
+          btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+          btn.classList.add('text-white/60');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightActiveNavButtonOnScroll);
+    window.addEventListener('DOMContentLoaded', () => {
+      init();
+      highlightActiveNavButtonOnScroll();
+    });
+  </script>
+</body>
+</html>

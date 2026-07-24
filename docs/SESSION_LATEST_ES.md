@@ -1,31 +1,29 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Animación de Carga (Preloader Bandera Marroquí)**:
-   - Configurada la animación de carga estilo marroquí para que dure **2.8 segundos** garantizados con fondo negro pulcro e insignia de estrella dorada.
-   - Bloqueado el scroll de la página (`overflow: hidden`) durante la carga y forzada la posición inicial en la parte superior (`window.scrollTo(0,0)`), evitando que el usuario navegue antes de finalizar el preloader.
+1. **Corrección de Imágenes de Escaparates (Dónde Estamos)**:
+   - Corregida la asignación cruzada de fotos en las tarjetas de locales en `index.html` y en `supabase_schema.sql`.
+   - Ahora la imagen `pere_garau.webp` corresponde a **Plaza de Pere Garau, 18** y `frances_barcelo.webp` a **Francesc Barceló i Combis, 4**.
 
-2. **Rediseño del Footer (Navegación Rápida)**:
-   - Reemplazada la columna sobrante *"Contacto & Información"* en el footer por una sección limpia de **Navegación** con enlaces directos (`Inicio`, `Sobre Nosotros`, `Dónde Estamos`, `Nuestro Menú`, `Carta Digital (ES/EN/FR)` y `Contacto & Reservas`).
+2. **Verificación y Configuración de Cookies con Supabase**:
+   - Confirmado el funcionamiento híbrido: `localStorage` para carga instantánea en 0ms para el cliente, y llamada en segundo plano a `supabase.from('consentimiento_cookies')` para registro de auditoría.
 
-3. **Carrusel de Fotos del Menú (Estilo CodePen Swiper Coverflow 3D)**:
-   - Reemplazado el slider básico por el carrusel **Swiper Coverflow 3D** en `index.html`.
-   - Ajustada la altura vertical en móviles (`h-[400px] sm:h-[450px] md:h-[500px]`) para enmarcar las 17 fotografías auténticas sin recortes.
+3. **Actualización de Títulos y Metas de Marca**:
+   - Reemplazada la frase *"Sabores Auténticos del Norte de África"* por **"Gastronomía Tradicional Marroquí en Palma de Mallorca"** en el título de la pestaña (`<title>`), meta etiquetas Open Graph y Twitter (`og:title` / `twitter:title`) y esquema por defecto de Supabase.
 
-4. **Analítica Web (Microsoft Clarity)**:
-   - Integrado el script oficial de **Microsoft Clarity** (`tag: xrkh712a2y`) en `index.html` y `menu.html`.
+4. **Sincronización Git y Despliegue en Cloudflare**:
+   - Subida y fusión de cambios a las ramas `dev` y `main` en GitHub y GitLab para disparar el despliegue automático en Cloudflare Pages.
 
 ## Archivos modificados
-- `index.html` (Preloader 2.8s con bloqueo de scroll, rediseño columna navegación footer, Swiper Coverflow 3D, Microsoft Clarity).
-- `menu.html` (Microsoft Clarity analytics).
-- `docs/SESSION_LATEST_ES.md` (Documentación actualizada de la sesión).
+- `index.html` (Corrección de imágenes de escaparate y actualización de títulos SEO a "Gastronomía Tradicional Marroquí en Palma de Mallorca").
+- `supabase_schema.sql` (Corrección de mapeo de fotos de escaparates y actualización de la insignia por defecto).
+- `docs/SESSION_LATEST_ES.md` (Documentación actualizada de fin de sesión).
 - `docs/ROADMAP.md` (Roadmap actualizado).
 
 ## Problemas solucionados
-- Corregida la visibilidad del preloader marroquí (ahora se visualiza 2.8s completos).
-- Evitado el scroll prematuro durante la pantalla de carga.
-- Mejorada la estructura y enlaces de navegación en el pie de página.
+- Corregido el intercambio accidental de imágenes entre los escaparates de Pere Garau y Barceló i Combis.
+- Ajustadas las meta-etiquetas SEO de marca según la preferencia expresada por el usuario.
 
 ## Qué queda pendiente
-- **Backend con Supabase:** Conexión de reserva de mesas y contenidos dinámicos.
-- Configuración de dominio personalizado en Cloudflare Pages.
+- Conexión de API Key definitiva de Supabase para recepción de reservas y cookies en producción.
+- Configuración del dominio personalizado en Cloudflare Pages.

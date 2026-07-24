@@ -45,7 +45,7 @@ CREATE TABLE public.fotos_hero (
     imagen_url TEXT NOT NULL,
     titulo TEXT,
     subtitulo TEXT,
-    insignia TEXT DEFAULT 'SABOR AUTÉNTICO DEL NORTE DE ÁFRICA',
+    insignia TEXT DEFAULT 'GASTRONOMÍA TRADICIONAL MARROQUÍ EN PALMA DE MALLORCA',
     orden INT DEFAULT 1,
     activa BOOLEAN DEFAULT TRUE
 );
@@ -108,9 +108,9 @@ CREATE TABLE public.locales_restaurante (
 );
 
 INSERT INTO public.locales_restaurante (nombre_tienda, direccion, telefono, enlace_google_maps, imagen_escaparate, orden) VALUES
-('Pere Garau', 'Plaza de Pere Garau, 18, Palma', '+34 632 02 02 09', 'https://maps.google.com/?q=Plaza+Pere+Garau+18+Palma', 'assets/fotos del escaparate/frances_barcelo.webp', 1),
+('Pere Garau', 'Plaza de Pere Garau, 18, Palma', '+34 632 02 02 09', 'https://maps.google.com/?q=Plaza+Pere+Garau+18+Palma', 'assets/fotos del escaparate/pere_garau.webp', 1),
 ('Capità Vila', 'Carrer de Capità Vila, 14, Palma', '+34 632 02 02 09', 'https://maps.google.com/?q=Capita+Vila+14+Palma', 'assets/fotos del escaparate/capita_vila.webp', 2),
-('Llevant (Barceló i Combis)', 'Francesc Barceló i Combis, 4, Palma', '+34 632 02 02 09', 'https://maps.google.com/?q=Francesc+Barcelo+i+Combis+4+Palma', 'assets/fotos del escaparate/pere_garau.webp', 3);
+('Llevant (Barceló i Combis)', 'Francesc Barceló i Combis, 4, Palma', '+34 632 02 02 09', 'https://maps.google.com/?q=Francesc+Barcelo+i+Combis+4+Palma', 'assets/fotos del escaparate/frances_barcelo.webp', 3);
 
 -- 6. RESEÑAS Y OPINIONES DE CLIENTES
 CREATE TABLE public.opiniones_clientes (

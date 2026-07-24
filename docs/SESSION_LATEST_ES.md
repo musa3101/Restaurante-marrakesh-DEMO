@@ -11,7 +11,10 @@
    - Eliminadas las imágenes de demostración artificiales (`zaazaa_smoothie.png`, `pizza_kebab.png`).
    - Mantenidas únicamente las **17 fotografías reales y auténticas** del restaurante (`IMG_4445.jpg`, `IMG_4441.jpg`, etc.).
 
-3. **Organización y Limpieza de Proyecto**:
+3. **Analítica Web & Mapa de Calor (Microsoft Clarity)**:
+   - Integrado el script oficial de **Microsoft Clarity** (`tag: xrkh712a2y`) en `index.html` y `menu.html` para monitorizar la evolución, interacción y mapa de calor de los usuarios en tiempo real.
+
+4. **Organización y Limpieza de Proyecto**:
    - Limpieza de activos temporales y archivos no utilizados en `assets/food/`.
    - Verificación de la estructura de rutas (`menu.html`, `menu-es.html`, `menu-en.html`, `menu-fr.html`, `server.py`).
 

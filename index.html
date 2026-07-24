@@ -533,15 +533,24 @@
 <!-- ============================================ -->
 <!-- CODEPEN PAGE PRELOADER (Moroccan Flag Theme) -->
 <!-- ============================================ -->
-<div id="page-preloader" class="fixed inset-0 z-[999999] bg-black flex items-center justify-center transition-opacity duration-500">
-  <div id="load">
-    <div>G</div>
-    <div>N</div>
-    <div>I</div>
-    <div>D</div>
-    <div>A</div>
-    <div>O</div>
-    <div>L</div>
+<div id="page-preloader" class="fixed inset-0 z-[999999] bg-black flex flex-col items-center justify-center transition-opacity duration-500 select-none">
+  <div class="flex flex-col items-center justify-center gap-4 relative">
+    <div class="w-14 h-14 rounded-full border border-amber-500/40 bg-black/80 flex items-center justify-center shadow-[0_0_30px_rgba(212,168,75,0.35)] mb-2">
+      <svg class="w-8 h-8 text-amber-400 animate-spin" style="animation-duration: 10s;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L61.8 25.5 L85.4 14.6 L74.5 38.2 L95 50 L74.5 61.8 L85.4 85.4 L61.8 74.5 L50 95 L38.2 74.5 L14.6 85.4 L25.5 61.8 L5 50 L25.5 38.2 L14.6 14.6 L38.2 25.5 Z" fill="#D4A84B" fill-opacity="0.2" stroke="#D4A84B" stroke-width="2"/>
+        <circle cx="50" cy="50" r="10" fill="#D4A84B"/>
+      </svg>
+    </div>
+    <div id="load">
+      <div>G</div>
+      <div>N</div>
+      <div>I</div>
+      <div>D</div>
+      <div>A</div>
+      <div>O</div>
+      <div>L</div>
+    </div>
+    <p class="font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 text-xs tracking-[0.35em] uppercase mt-10">Tacos Marrakech</p>
   </div>
 </div>
 
@@ -1456,23 +1465,35 @@
   <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start mb-12">
       
-      <!-- LEFT COLUMN: Contacto & Tiendas -->
+      <!-- LEFT COLUMN: Navegación Rápida -->
       <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-        <h5 class="font-label text-xs uppercase tracking-[0.25em] bg-gradient-to-r from-amber-400 to-tertiary bg-clip-text text-transparent font-black">Contacto & Información</h5>
+        <h5 class="font-label text-xs uppercase tracking-[0.25em] bg-gradient-to-r from-amber-400 to-tertiary bg-clip-text text-transparent font-black">Navegación</h5>
         
-        <div class="space-y-3 font-body text-xs text-white/70">
-          <a href="mailto:tacosmarrakech4@gmail.com" class="flex items-center gap-2.5 hover:text-amber-400 transition-colors group justify-center md:justify-start">
-            <span class="material-symbols-outlined text-amber-400 text-base group-hover:scale-110 transition-transform">mail</span>
-            <span>tacosmarrakech4@gmail.com</span>
+        <div class="flex flex-col gap-2.5 font-label text-xs">
+          <a href="#inicio" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+            <span>Inicio</span>
           </a>
-          <a href="tel:+34632020209" class="flex items-center gap-2.5 hover:text-amber-400 transition-colors group justify-center md:justify-start">
-            <span class="material-symbols-outlined text-amber-400 text-base group-hover:scale-110 transition-transform">call</span>
-            <span>+34 632 02 02 09</span>
+          <a href="#nosotros" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+            <span>Sobre Nosotros</span>
           </a>
-          <div class="flex items-start gap-2.5 justify-center md:justify-start text-white/60">
-            <span class="material-symbols-outlined text-amber-400 text-base shrink-0 mt-0.5">location_on</span>
-            <span>3 Locales en Palma: Pere Garau, 18 • Capità Vila, 14 • Francesc Barceló i Combis, 4</span>
-          </div>
+          <a href="#donde-estamos" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+            <span>Dónde Estamos</span>
+          </a>
+          <a href="#menu" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+            <span>Nuestro Menú</span>
+          </a>
+          <a href="menu.html" target="_blank" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:scale-110 transition-transform">open_in_new</span>
+            <span>Carta Digital (ES/EN/FR)</span>
+          </a>
+          <a href="#contacto" class="text-white/70 hover:text-amber-400 transition-colors flex items-center gap-1.5 justify-center md:justify-start group">
+            <span class="material-symbols-outlined text-sm text-amber-400/60 group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+            <span>Contacto & Reservas</span>
+          </a>
         </div>
       </div>
 
@@ -2003,19 +2024,31 @@
     });
   }
 
-  // === CODEPEN PAGE PRELOADER HIDE HANDLER (Guaranteed 2.0s Duration) ===
-  function hidePreloader() {
+  // === CODEPEN PAGE PRELOADER HIDE HANDLER (Guaranteed 2.8s Duration & Scroll Lock) ===
+  (function initPreloader() {
     const preloader = document.getElementById('page-preloader');
     if (!preloader) return;
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-      preloader.style.display = 'none';
-    }, 500);
-  }
 
-  // Always hide preloader after 2.0 seconds no matter what
-  setTimeout(hidePreloader, 2000);
-  window.addEventListener('load', hidePreloader);
+    // Lock page scroll & force top position while preloader is active
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
+    function finishPreloader() {
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }, 500);
+    }
+
+    // Always show preloader for 2.8s duration so Moroccan flag animation plays in full
+    setTimeout(finishPreloader, 2800);
+  })();
 
   // === COOKIE BANNER DELAY (4.5s Delay after load) ===
   function initCookieBanner() {

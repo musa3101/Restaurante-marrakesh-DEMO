@@ -1,7 +1,9 @@
 # Roadmap del Proyecto - Tacos Marrakech
 
 ## Tareas Completadas
-- [x] Corrección estática y responsive de la sección Hero con efecto Ken Burns y carrusel de 4 fotos HD del local.
+- [x] Optimización de animación Preloader Marroquí (duración garantizada de 2.8s, fondo negro y bloqueo de scroll durante carga).
+- [x] Rediseño del Footer (remplazada la columna repetida por columna de Navegación Rápida a secciones clave).
+- [x] Integración del script de analítica y mapas de calor **Microsoft Clarity** (`xrkh712a2y`).
 - [x] Implementación del carrusel **Swiper Coverflow 3D** en "Nuestro Menú" con autoplay, navegación dorada e imágenes reales de platos.
 - [x] Optimización del encuadre vertical de fotos en móvil (`h-[400px]`) y eliminación de fotos artificiales.
 - [x] Optimización de imágenes reales de alta definición para local, té y repostería.
@@ -25,4 +27,3 @@
 ## Próximas Mejoras Prioritarias
 - [ ] Implementar backend y base de datos con **Supabase** (gestión de reservas).
 - [ ] Configurar dominio personalizado en Cloudflare Pages (ej. `tacosmarrakechpalma.com`).
-- [ ] Integrar herramientas de analítica web (Google Analytics / Píxel de Facebook).

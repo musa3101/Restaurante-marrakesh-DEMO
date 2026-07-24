@@ -1,40 +1,31 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Carrusel de Fotos del Menú (Estilo CodePen Swiper Coverflow 3D)**:
-   - Reemplazado el slider básico de "Nuestro Menú" en `index.html` por un carrusel dinámico **Swiper Coverflow 3D**.
-   - Configurado con efecto 3D de profundidad, autoplay continuo (cada 3s) y botones de navegación dorados (`<` y `>`).
-   - Ajustada la altura vertical en móviles (`h-[400px] sm:h-[450px] md:h-[500px]`) para enmarcar las fotografías auténticas de forma óptima sin recortes excesivos.
-   - Eliminados los indicadores de paginación inferiores para un acabado limpio y refinado.
+1. **Animación de Carga (Preloader Bandera Marroquí)**:
+   - Configurada la animación de carga estilo marroquí para que dure **2.8 segundos** garantizados con fondo negro pulcro e insignia de estrella dorada.
+   - Bloqueado el scroll de la página (`overflow: hidden`) durante la carga y forzada la posición inicial en la parte superior (`window.scrollTo(0,0)`), evitando que el usuario navegue antes de finalizar el preloader.
 
-2. **Filtro Estricto de Fotos Reales del Local**:
-   - Eliminadas las imágenes de demostración artificiales (`zaazaa_smoothie.png`, `pizza_kebab.png`).
-   - Mantenidas únicamente las **17 fotografías reales y auténticas** del restaurante (`IMG_4445.jpg`, `IMG_4441.jpg`, etc.).
+2. **Rediseño del Footer (Navegación Rápida)**:
+   - Reemplazada la columna sobrante *"Contacto & Información"* en el footer por una sección limpia de **Navegación** con enlaces directos (`Inicio`, `Sobre Nosotros`, `Dónde Estamos`, `Nuestro Menú`, `Carta Digital (ES/EN/FR)` y `Contacto & Reservas`).
 
-3. **Analítica Web & Mapa de Calor (Microsoft Clarity)**:
-   - Integrado el script oficial de **Microsoft Clarity** (`tag: xrkh712a2y`) en `index.html` y `menu.html` para monitorizar la evolución, interacción y mapa de calor de los usuarios en tiempo real.
+3. **Carrusel de Fotos del Menú (Estilo CodePen Swiper Coverflow 3D)**:
+   - Reemplazado el slider básico por el carrusel **Swiper Coverflow 3D** en `index.html`.
+   - Ajustada la altura vertical en móviles (`h-[400px] sm:h-[450px] md:h-[500px]`) para enmarcar las 17 fotografías auténticas sin recortes.
 
-4. **Organización y Limpieza de Proyecto**:
-   - Limpieza de activos temporales y archivos no utilizados en `assets/food/`.
-   - Verificación de la estructura de rutas (`menu.html`, `menu-es.html`, `menu-en.html`, `menu-fr.html`, `server.py`).
-
-4. **Identidad Visual, Favicon y Metadatos OG**:
-   - Actualizado el logotipo del footer en `index.html` utilizando la imagen corporativa oficial (`assets/logofotter.jpg`).
-   - Configurado Favicon y etiquetas Meta Open Graph & Twitter en `index.html` y `menu.html`.
+4. **Analítica Web (Microsoft Clarity)**:
+   - Integrado el script oficial de **Microsoft Clarity** (`tag: xrkh712a2y`) en `index.html` y `menu.html`.
 
 ## Archivos modificados
-- `index.html` (Swiper Coverflow 3D, ajuste vertical móvil, autoplay, eliminación de pagination dots y limpieza de slides).
-- `assets/food/` (Eliminadas imágenes de demo no pertenecientes a la carta real).
+- `index.html` (Preloader 2.8s con bloqueo de scroll, rediseño columna navegación footer, Swiper Coverflow 3D, Microsoft Clarity).
+- `menu.html` (Microsoft Clarity analytics).
 - `docs/SESSION_LATEST_ES.md` (Documentación actualizada de la sesión).
-- `docs/ROADMAP.md` (Roadmap actualizado con el nuevo carrusel Coverflow 3D).
+- `docs/ROADMAP.md` (Roadmap actualizado).
 
 ## Problemas solucionados
-- Reemplazado el slider estático/básico del menú por el diseño interactivo Coverflow 3D solicitado.
-- Corregido el encuadre vertical de las fotos de los platos en teléfonos móviles.
-- Eliminadas fotos no reales del menú.
-- Eliminados elementos visuales innecesarios (puntos de paginación) para mantener el diseño sobrio.
+- Corregida la visibilidad del preloader marroquí (ahora se visualiza 2.8s completos).
+- Evitado el scroll prematuro durante la pantalla de carga.
+- Mejorada la estructura y enlaces de navegación en el pie de página.
 
 ## Qué queda pendiente
 - **Backend con Supabase:** Conexión de reserva de mesas y contenidos dinámicos.
 - Configuración de dominio personalizado en Cloudflare Pages.
-- Analítica web y seguimiento de conversiones.

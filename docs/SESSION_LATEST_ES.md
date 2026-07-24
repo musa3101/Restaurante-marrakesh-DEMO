@@ -1,42 +1,37 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Identidad Visual, Favicon y Metadatos OG**:
+1. **Carrusel de Fotos del Menú (Estilo CodePen Swiper Coverflow 3D)**:
+   - Reemplazado el slider básico de "Nuestro Menú" en `index.html` por un carrusel dinámico **Swiper Coverflow 3D**.
+   - Configurado con efecto 3D de profundidad, autoplay continuo (cada 3s) y botones de navegación dorados (`<` y `>`).
+   - Ajustada la altura vertical en móviles (`h-[400px] sm:h-[450px] md:h-[500px]`) para enmarcar las fotografías auténticas de forma óptima sin recortes excesivos.
+   - Eliminados los indicadores de paginación inferiores para un acabado limpio y refinado.
+
+2. **Filtro Estricto de Fotos Reales del Local**:
+   - Eliminadas las imágenes de demostración artificiales (`zaazaa_smoothie.png`, `pizza_kebab.png`).
+   - Mantenidas únicamente las **17 fotografías reales y auténticas** del restaurante (`IMG_4445.jpg`, `IMG_4441.jpg`, etc.).
+
+3. **Organización y Limpieza de Proyecto**:
+   - Limpieza de activos temporales y archivos no utilizados en `assets/food/`.
+   - Verificación de la estructura de rutas (`menu.html`, `menu-es.html`, `menu-en.html`, `menu-fr.html`, `server.py`).
+
+4. **Identidad Visual, Favicon y Metadatos OG**:
    - Actualizado el logotipo del footer en `index.html` utilizando la imagen corporativa oficial (`assets/logofotter.jpg`).
-   - Configurado el **Favicon** y las etiquetas **Meta Open Graph & Twitter** en `index.html` y `menu.html` para previsualizaciones profesionales al compartir en WhatsApp y redes.
-   - Limpieza de archivos obsoletos (`assets/Carta.pdf`, `assets/logo.png`, etc.).
-
-2. **Fondo del Hero Animado (Efecto Ken Burns)**:
-   - Carrusel dinámico en el Hero (`#inicio`) con 4 fotos HD del interior del restaurante y animación de zoom suave (`scale(1.1)`).
-   - Insignia flotante VIP sutil en la primera diapositiva (*"Visita VIP: Moussa Goulamb"*).
-
-3. **Sección "Sobre Nosotros" & Optimizaciones UX Móvil**:
-   - Rediseño minimalista centrado en la historia y los 3 pilares del servicio.
-   - Header móvil compacto y transparente (`backdrop-blur-md`).
-   - Eliminados los enlaces/botones de pedir por WhatsApp para enfocar la web en el sitio corporativo.
-   - Implementado el botón interactivo `.fancy` (estilo Uiverse con bordes dorados) para acceder a la Carta Digital (`menu.html`).
-
-4. **Rediseño de Cabecera en Carta Digital (`menu.html`)**:
-   - Botón inteligente **`< Atrás`** (`window.history.back()`).
-   - Integración de los selectores de idioma (`ES` | `EN` | `FR`) en la barra superior unificada para maximizar la visibilidad del menú en pantallas móviles.
-
-5. **Integración Git & Despliegue**:
-   - Fusionada la rama `dev` en `main` y sincronizada en GitHub / Cloudflare Pages.
+   - Configurado Favicon y etiquetas Meta Open Graph & Twitter en `index.html` y `menu.html`.
 
 ## Archivos modificados
-- `index.html` (Ken Burns, metadatos OG, favicons, logo footer, botón `.fancy`, optimizaciones responsive).
-- `menu.html` (Cabecera compacta unificada, botón Atrás inteligente, metadatos OG).
-- `.gitignore` y `.pagesignore` (Archivos de configuración y exclusión).
-- `docs/SESSION_LATEST_ES.md` (Documentación final de sesión).
-- `docs/ROADMAP.md` (Roadmap actualizado).
+- `index.html` (Swiper Coverflow 3D, ajuste vertical móvil, autoplay, eliminación de pagination dots y limpieza de slides).
+- `assets/food/` (Eliminadas imágenes de demo no pertenecientes a la carta real).
+- `docs/SESSION_LATEST_ES.md` (Documentación actualizada de la sesión).
+- `docs/ROADMAP.md` (Roadmap actualizado con el nuevo carrusel Coverflow 3D).
 
 ## Problemas solucionados
-- Optimizado el espacio vertical en `menu.html` en móviles.
-- Navegación mejorada al volver desde la carta digital a la página principal.
-- Eliminada la confusión sobre el canal de pedidos online en la web.
-- Vista previa e icono de pestaña corregidos para redes sociales y navegadores.
+- Reemplazado el slider estático/básico del menú por el diseño interactivo Coverflow 3D solicitado.
+- Corregido el encuadre vertical de las fotos de los platos en teléfonos móviles.
+- Eliminadas fotos no reales del menú.
+- Eliminados elementos visuales innecesarios (puntos de paginación) para mantener el diseño sobrio.
 
 ## Qué queda pendiente
-- **Backend con Supabase:** Gestión de base de datos y reservas.
-- Configurar dominio personalizado en Cloudflare Pages (ej. `tacosmarrakechpalma.com`).
-- Integrar analítica web (Google Analytics / Píxel de Facebook).
+- **Backend con Supabase:** Conexión de reserva de mesas y contenidos dinámicos.
+- Configuración de dominio personalizado en Cloudflare Pages.
+- Analítica web y seguimiento de conversiones.

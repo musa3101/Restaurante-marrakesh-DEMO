@@ -270,6 +270,11 @@
       }
     }
 
+    // Handle Back button to return directly to #menu section of index.html
+    function handleBack() {
+      window.location.href = 'index.html#menu';
+    }
+
     // Initialize from URL param, browser setting, or default to Spanish
     function init() {
       const params = new URLSearchParams(window.location.search);
@@ -318,5 +323,9 @@
       highlightActiveNavButtonOnScroll();
     });
   </script>
+
+  <!-- Supabase SDK & Client Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-client.js"></script>
 </body>
 </html>

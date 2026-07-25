@@ -181,7 +181,7 @@
       if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
         window.history.back();
       } else {
-        window.location.href = 'index.html#donde-estamos';
+        window.location.href = 'index.html#menu';
       }
     }
 
@@ -278,10 +278,7 @@
       }
     }
 
-    // Handle Back button to return directly to #menu section of index.html
-    function handleBack() {
-      window.location.href = 'index.html#menu';
-    }
+
 
     // Initialize from URL param, browser setting, or default to Spanish
     function init() {

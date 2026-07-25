@@ -96,16 +96,36 @@
     }
 </script>
 <style>
-    /* === GLASS NAV === */
-    .glass-nav {
-        background: rgba(26, 18, 16, 0.85);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(212, 168, 75, 0.08);
+    /* === HEADER / NAVBAR CUSTOM SCROLL BEHAVIOR === */
+    #navbar {
+        background-color: #000000; /* Negro fijo por defecto (en hero) */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 0.5rem; /* py-2 */
+        padding-bottom: 0.5rem; /* py-2 */
     }
-    .glass-nav.scrolled {
-        background: rgba(26, 18, 16, 0.95);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    
+    @media (max-width: 767px) {
+        #navbar.scrolled {
+            background-color: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-bottom-color: transparent !important;
+            box-shadow: none !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        #navbar {
+            background-color: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding-top: 0.75rem; /* py-3 */
+            padding-bottom: 0.75rem; /* py-3 */
+        }
+        #navbar.scrolled {
+            background-color: rgba(12, 8, 7, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
     }
 
     /* === MOROCCAN PATTERN === */
@@ -550,14 +570,14 @@
       <div>O</div>
       <div>L</div>
     </div>
-    <p class="font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 text-xs tracking-[0.35em] uppercase mt-10">Tacos Marrakech</p>
+    <p class="font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 text-xs tracking-[0.35em] uppercase mt-16">Tacos Marrakech</p>
   </div>
 </div>
 
 <!-- ============================================ -->
 <!-- HEADER / NAVBAR                              -->
 <!-- ============================================ -->
-<nav class="fixed top-0 w-full z-50 transition-all duration-500 py-3 bg-black/55 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)]" id="navbar" aria-label="Navegación principal">
+<nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar" aria-label="Navegación principal">
   <div class="flex justify-between items-center px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
     <!-- Logo with Fade-In Animation -->
     <a class="flex items-center gap-3 group active:scale-95 transition-transform animate-fade-header-logo" href="#inicio" aria-label="Inicio">
@@ -565,7 +585,7 @@
         <!-- Ambient Gold Glow -->
         <div class="absolute inset-0 bg-amber-500/20 rounded-full blur-md group-hover:bg-amber-400/40 transition-all duration-500"></div>
         <!-- Geometric Moroccan Star Emblem -->
-        <svg class="w-9 h-9 sm:w-10 sm:h-10 text-tertiary transition-transform duration-700 group-hover:rotate-180 relative z-10 filter drop-shadow-[0_2px_8px_rgba(212,168,75,0.4)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-tertiary transition-transform duration-700 group-hover:rotate-180 relative z-10 filter drop-shadow-[0_2px_8px_rgba(212,168,75,0.4)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Outer 8-Point Star -->
           <path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z" fill="url(#gold-grad-1)" />
           <path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z" fill="url(#gold-grad-2)" transform="rotate(45 50 50)" opacity="0.85" />
@@ -587,7 +607,7 @@
         </svg>
       </div>
       <div class="flex flex-col">
-        <span class="text-lg sm:text-2xl font-headline font-black tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Tacos Marrakech</span>
+        <span class="text-base sm:text-2xl font-headline font-black tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Tacos Marrakech</span>
         <span class="text-[8px] sm:text-[9px] font-label font-bold uppercase tracking-[0.3em] text-amber-400/80 -mt-1 hidden sm:block">Resto & Tearoom • Palma</span>
       </div>
     </a>
@@ -614,25 +634,32 @@
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 z-[60] bg-[#0C0807]/95 backdrop-blur-xl mobile-menu flex flex-col items-center justify-between p-6 border-l border-tertiary/10" id="mobile-menu">
   <!-- Top Bar: Logo & Close Button -->
-  <div class="w-full px-2 pt-2 flex justify-between items-center">
-    <a class="flex items-center gap-2" href="#inicio" onclick="closeMobileMenu()">
-      <svg class="w-8 h-8 text-tertiary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#D4A84B" />
-        <path d="M50 5 L63.5 36.5 L95 50 L63.5 63.5 L50 95 L36.5 63.5 L5 50 L36.5 36.5 Z" fill="#C4632A" transform="rotate(45 50 50)" opacity="0.9" />
-      </svg>
-      <span class="text-base font-headline font-bold text-tertiary tracking-tight">Tacos Marrakech</span>
+  <div class="w-full flex justify-between items-center pb-4 border-b border-white/5">
+    <a class="flex items-center gap-3 group active:scale-95 transition-transform" href="#inicio" onclick="closeMobileMenu()">
+      <div class="relative flex items-center justify-center">
+        <!-- Ambient Gold Glow -->
+        <div class="absolute inset-0 bg-amber-500/20 rounded-full blur-md"></div>
+        <!-- Detailed Geometric Moroccan Star -->
+        <svg class="w-8 h-8 text-tertiary relative z-10 filter drop-shadow-[0_2px_8px_rgba(212,168,75,0.4)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z" fill="url(#gold-grad-1)" />
+          <path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z" fill="url(#gold-grad-2)" transform="rotate(45 50 50)" opacity="0.85" />
+          <circle cx="50" cy="50" r="14" fill="#0C0807" stroke="#F59E0B" stroke-width="2"/>
+          <circle cx="50" cy="50" r="6" fill="#F59E0B"/>
+        </svg>
+      </div>
+      <span class="text-base font-headline font-black tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Tacos Marrakech</span>
     </a>
-    <button onclick="closeMobileMenu()" id="mobile-menu-close" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-tertiary text-white/80 hover:text-tertiary flex items-center justify-center transition-all cursor-pointer" aria-label="Cerrar menú">
-      <span class="material-symbols-outlined text-lg">close</span>
+    <button onclick="closeMobileMenu()" id="mobile-menu-close" class="w-9.5 h-9.5 rounded-full bg-white/5 border border-white/10 hover:border-amber-400 text-white/80 hover:text-black hover:bg-amber-400 flex items-center justify-center transition-all duration-300 shadow-md shadow-black/40 cursor-pointer active:scale-90" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined text-base">close</span>
     </button>
   </div>
 
   <!-- Separador de Sección Bandera de Marruecos -->
-  <div class="w-[85%] flex items-center justify-center my-1">
+  <div class="w-full max-w-[280px] flex items-center justify-center my-4">
     <div class="w-full flex items-center justify-center relative">
-      <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
-      <div class="relative z-10 w-7 h-7 rounded-full bg-[#0C0807] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
-        <svg class="w-3.5 h-3.5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+      <div class="absolute inset-0 h-[1px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+      <div class="relative z-10 w-8 h-8 rounded-full bg-[#0C0807] border border-[#006233]/60 flex items-center justify-center shadow-lg shadow-[#006233]/30">
+        <svg class="w-4 h-4 text-[#006233] drop-shadow-[0_0_4px_rgba(0,98,51,0.6)]" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
         </svg>
       </div>
@@ -716,9 +743,12 @@
     <div class="hero-slide absolute inset-0">
       <img class="w-full h-full object-cover object-center filter contrast-105 saturate-115 brightness-105" alt="Visita especial de Moussa Goulamb en Tacos Marrakech" src="assets/hero/hero.jpg" loading="lazy"/>
       <!-- Refined Glassmorphism Badge (Subtle, Elegant, Non-intrusive) -->
-      <div class="absolute top-20 right-3 sm:top-24 sm:right-6 z-20 font-label text-[10px] sm:text-xs text-amber-300 bg-black/60 backdrop-blur-xl px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-amber-500/40 font-semibold shadow-[0_8px_25px_rgba(0,0,0,0.8)] flex items-center gap-2 max-w-[260px] sm:max-w-none">
+      <div class="absolute top-24 right-4 sm:top-28 sm:right-6 z-20 font-label text-[10px] sm:text-xs text-amber-300 bg-black/75 backdrop-blur-xl px-3.5 sm:px-4 py-2 rounded-2xl border border-amber-500/40 font-semibold shadow-[0_8px_25px_rgba(0,0,0,0.8)] flex items-center gap-2 max-w-[280px] sm:max-w-none">
         <span class="material-symbols-outlined text-sm sm:text-base text-amber-400 shrink-0">workspace_premium</span>
-        <span>Visita VIP: <strong class="text-white font-extrabold">Moussa Goulamb</strong> <span class="text-white/70 font-normal hidden sm:inline">(Nº1 Boxeo Superpluma)</span></span>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:gap-1.5 leading-tight">
+          <span>Visita VIP: <strong class="text-white font-extrabold">Moussa Goulamb</strong></span>
+          <span class="text-white/70 font-normal text-[9px] sm:text-xs">(Nº1 Boxeo Superpluma)</span>
+        </div>
       </div>
     </div>
 
@@ -1184,18 +1214,16 @@
                 <p class="text-white font-headline font-bold text-base sm:text-lg group-hover:text-amber-300 transition-colors">+34 632 02 02 09</p>
               </div>
             </a>
-            <!-- WhatsApp -->
-            <a class="flex items-center gap-4 w-full bg-white/5 hover:bg-emerald-500/10 p-4 rounded-2xl transition-all duration-300 border border-white/10 hover:border-emerald-400/40 group hover:-translate-y-0.5" href="https://wa.me/34632020209" target="_blank" rel="noopener noreferrer" id="btn-whatsapp-contacto">
-              <div class="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl text-emerald-400 group-hover:scale-110 transition-transform shrink-0 flex items-center justify-center">
-                <svg class="w-6 h-6 fill-[#25D366] filter drop-shadow-[0_2px_6px_rgba(37,211,102,0.4)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
+            <!-- Reservar Mesa -->
+            <button onclick="openReservationModal()" class="flex items-center text-left gap-4 w-full bg-white/5 hover:bg-amber-500/10 p-4 rounded-2xl transition-all duration-300 border border-white/10 hover:border-amber-400/40 group hover:-translate-y-0.5 cursor-pointer" id="btn-reservar-contacto">
+              <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-amber-400 group-hover:scale-110 transition-transform shrink-0 flex items-center justify-center">
+                <span class="material-symbols-outlined font-bold text-xl">table_restaurant</span>
               </div>
               <div>
-                <p class="text-[9px] text-emerald-400/90 font-label uppercase tracking-[0.2em] mb-0.5 font-extrabold">¿Tienes alguna duda o pregunta?</p>
-                <p class="text-white font-headline font-bold text-sm sm:text-base group-hover:text-emerald-300 transition-colors">Escríbenos por WhatsApp</p>
+                <p class="text-[9px] text-amber-400/80 font-label uppercase tracking-[0.2em] mb-0.5 font-extrabold">¿Quieres reservar una mesa?</p>
+                <p class="text-white font-headline font-bold text-sm sm:text-base group-hover:text-amber-300 transition-colors">Reservar Mesa</p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -1591,6 +1619,8 @@
       ease: 'power3.out',
       delay: i % 3 * 0.1
     });
+  });
+
   // === NAVBAR SCROLL EFFECT ===
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -2125,8 +2155,6 @@
     </div>
   </div>
 </div>
-</body>
-</html>
 
 <!-- ============================================ -->
 <!-- LEGAL MODAL CONTAINER                        -->

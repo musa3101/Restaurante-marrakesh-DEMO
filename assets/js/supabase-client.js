@@ -2,18 +2,18 @@
  * Integración Client-Side Simplificada en Español con Supabase para Tacos Marrakech
  */
 
-const SUPABASE_URL = 'https://xraatkirsryjgnmevyxb.supabase.co';
-const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'sb_publishable_xBhbZsOlrLqNI5PzIma48Q_-SXx5QXT';
+const SUPABASE_URL = 'https://feikeytbrxtsooaxsvjt.supabase.co';
+const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlaWtleXRicnh0c29vYXhzdmp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjUyMzUsImV4cCI6MjA5NjcwMTIzNX0.8JCgne4hkGDU3P3Zh1eYXSUR2G12vbaS_eIi5ifliXI';
 
-let supabase = null;
+let supabaseClient = null;
 
 if (window.supabase) {
-  supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
 
 // === CARGA DE CONTENIDOS DINÁMICOS DESDE TABLAS EN ESPAÑOL ===
 document.addEventListener('DOMContentLoaded', async () => {
-  if (!supabase) return;
+  if (!supabaseClient) return;
 
   try {
     await Promise.all([
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // 1. Cargar Información General (Teléfono, Redes Social, Footer)
 async function cargarInformacionYFooter() {
-  const { data, error } = await supabase.from('informacion_y_footer').select('*').eq('id', 'principal').single();
+  const { data, error } = await supabaseClient.from('informacion_y_footer').select('*').eq('id', 'principal').single();
   if (error || !data) return;
 
   if (data.telefono) {
@@ -43,7 +43,7 @@ async function cargarInformacionYFooter() {
 
 // 2. Cargar Fotos del Hero Slider
 async function cargarFotosHero() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('fotos_hero')
     .select('*')
     .eq('activa', true)
@@ -64,7 +64,7 @@ async function cargarFotosHero() {
 
 // 3. Cargar Nuestros Locales
 async function cargarLocales() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('locales_restaurante')
     .select('*')
     .eq('activo', true)
@@ -104,7 +104,7 @@ async function cargarLocales() {
 
 // 4. Cargar Opiniones de Clientes
 async function cargarOpiniones() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('opiniones_clientes')
     .select('*')
     .eq('publicada', true)
@@ -140,7 +140,7 @@ async function cargarCartaDigital() {
 
   if (!img1 || !img2 || !img3) return;
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('carta_digital')
     .select('*')
     .eq('idioma', currentLang);
@@ -156,9 +156,9 @@ async function cargarCartaDigital() {
 
 // === ENVÍO DE RESERVAS A LA TABLA 'reservas' EN SUPABASE ===
 async function submitReservationToSupabase(reservationData) {
-  if (supabase) {
+  if (supabaseClient) {
     try {
-      const { error } = await supabase.from('reservas').insert([{
+      const { error } = await supabaseClient.from('reservas').insert([{
         nombre_completo: reservationData.name,
         telefono: reservationData.phone || '',
         numero_personas: parseInt(reservationData.people) || 2,
@@ -178,9 +178,9 @@ async function submitReservationToSupabase(reservationData) {
 
 // === REGISTRO DE CONSENTIMIENTO DE COOKIES EN SUPABASE ===
 async function registrarConsentimientoCookie(choice) {
-  if (supabase) {
+  if (supabaseClient) {
     try {
-      const { error } = await supabase.from('consentimiento_cookies').insert([{
+      const { error } = await supabaseClient.from('consentimiento_cookies').insert([{
         eleccion: choice,
         navegador: navigator.userAgent || 'Desconocido'
       }]);

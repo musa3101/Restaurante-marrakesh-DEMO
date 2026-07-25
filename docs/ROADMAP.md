@@ -1,10 +1,13 @@
 # Roadmap del Proyecto - Tacos Marrakech
 
 ## Tareas Completadas
+- [x] Configuración de nuevo subdominio definitivo en Cloudflare Pages (`tacosmarrakech.pages.dev`) para coincidir con los flyers impresos.
+- [x] Conexión e integración de credenciales activas de Supabase en producción para reservas y cookies.
+- [x] Reubicación de CTAs: Reversión del Hero a solo "Ver Carta" y conversión del CTA de WhatsApp en contacto a "Reservar Mesa".
 - [x] Corrección de asignación de imágenes de escaparates (Pere Garau vs Francesc Barceló i Combis).
 - [x] Actualización SEO de marca a "Gastronomía Tradicional Marroquí en Palma de Mallorca" en títulos y redes sociales.
 - [x] Configuración y verificación de sistema híbrido de Cookies (localStorage + Supabase audit table).
-- [x] Optimización de animación Preloader Marroquí (duración garantizada de 2.8s, fondo negro y bloqueo de scroll durante carga).
+- [x] Optimización de animación Preloader Marroquí (duración garantizada de 2.8s, fondo negro y bloqueo de scroll durante carga, con espaciado optimizado).
 - [x] Rediseño del Footer (remplazada la columna repetida por columna de Navegación Rápida a secciones clave).
 - [x] Integración del script de analítica y mapas de calor **Microsoft Clarity** (`xrkh712a2y`).
 - [x] Implementación del carrusel **Swiper Coverflow 3D** en "Nuestro Menú" con autoplay, navegación dorada e imágenes reales de platos.
@@ -24,8 +27,7 @@
 - [x] Limpieza y organización de la estructura de archivos del proyecto.
 
 ## Tareas en Progreso
-- [/] Sincronización continua de Git con Cloudflare Pages en ramas `dev` y `main`.
+- [/] Sincronización continua de Git con Cloudflare Pages en ramas `dev` y `main` para el nuevo proyecto `tacosmarrakech`.
 
 ## Próximas Mejoras Prioritarias
-- [ ] Conectar credenciales activas de **Supabase** para recepción de reservas y auditoría de cookies en producción.
-- [ ] Configurar dominio personalizado en Cloudflare Pages.
+- [ ] Configurar dominio personalizado en Cloudflare Pages (si el cliente lo requiere más adelante).

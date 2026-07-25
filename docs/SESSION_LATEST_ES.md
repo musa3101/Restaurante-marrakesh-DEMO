@@ -1,29 +1,27 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Corrección de Imágenes de Escaparates (Dónde Estamos)**:
-   - Corregida la asignación cruzada de fotos en las tarjetas de locales en `index.html` y en `supabase_schema.sql`.
-   - Ahora la imagen `pere_garau.webp` corresponde a **Plaza de Pere Garau, 18** y `frances_barcelo.webp` a **Francesc Barceló i Combis, 4**.
+1. **Cambio de Subdominio en Cloudflare Pages**:
+   - Eliminado el antiguo proyecto `restaurante-marrakesh-demo`.
+   - Creado y configurado el nuevo proyecto **`tacosmarrakech`** conectado al repositorio de GitHub.
+   - La web ahora está activa y desplegándose en su nuevo subdominio definitivo: **`tacosmarrakech.pages.dev`**, coincidiendo exactamente con los flyers físicos impresos por el cliente.
 
-2. **Verificación y Configuración de Cookies con Supabase**:
-   - Confirmado el funcionamiento híbrido: `localStorage` para carga instantánea en 0ms para el cliente, y llamada en segundo plano a `supabase.from('consentimiento_cookies')` para registro de auditoría.
+2. **Reubicación de CTAs de Reserva**:
+   - Revertido el Hero principal para mostrar únicamente el botón de **"VER CARTA DIGITAL"** (diseño limpio original).
+   - Reemplazada la tarjeta de WhatsApp ("Escríbenos por WhatsApp") en la sección de contacto por el botón **"Reservar Mesa"** con icono temático (`table_restaurant`) y color ámbar unificado.
 
-3. **Actualización de Títulos y Metas de Marca**:
-   - Reemplazada la frase *"Sabores Auténticos del Norte de África"* por **"Gastronomía Tradicional Marroquí en Palma de Mallorca"** en el título de la pestaña (`<title>`), meta etiquetas Open Graph y Twitter (`og:title` / `twitter:title`) y esquema por defecto de Supabase.
-
-4. **Sincronización Git y Despliegue en Cloudflare**:
-   - Subida y fusión de cambios a las ramas `dev` y `main` en GitHub y GitLab para disparar el despliegue automático en Cloudflare Pages.
+3. **Auditoría y QA General de Código**:
+   - Resuelto el `SyntaxError` de GSAP en `index.html` cerrando correctamente su bucle.
+   - Limpiado el HTML eliminando etiquetas duplicadas de `</body>` y `</html>`.
+   - Corregida la sintaxis de la media-query CSS (`max-width` en lugar de `max-w`) para la transparencia del header al hacer scroll en móvil.
+   - Optimizada la visibilidad en móviles del distintivo "Visita VIP" a dos líneas y con mayor separación.
+   - Añadido margen al preloader para dar aire a las letras dinámicas.
+   - Eliminada la función duplicada `handleBack` en `menu.html` para asegurar un retorno limpio a `index.html#menu`.
 
 ## Archivos modificados
-- `index.html` (Corrección de imágenes de escaparate y actualización de títulos SEO a "Gastronomía Tradicional Marroquí en Palma de Mallorca").
-- `supabase_schema.sql` (Corrección de mapeo de fotos de escaparates y actualización de la insignia por defecto).
-- `docs/SESSION_LATEST_ES.md` (Documentación actualizada de fin de sesión).
-- `docs/ROADMAP.md` (Roadmap actualizado).
-
-## Problemas solucionados
-- Corregido el intercambio accidental de imágenes entre los escaparates de Pere Garau y Barceló i Combis.
-- Ajustadas las meta-etiquetas SEO de marca según la preferencia expresada por el usuario.
+- `index.html` (Cambios de CTAs, correcciones estructurales, media-query y VIP badge).
+- `menu.html` (Corrección de redundancia en script JS).
+- `assets/js/supabase-client.js` (Cambio a credenciales de producción del proyecto `feikeytbrxtsooaxsvjt` y resolución de conflicto de alcance local con `supabaseClient`).
 
 ## Qué queda pendiente
-- Conexión de API Key definitiva de Supabase para recepción de reservas y cookies en producción.
-- Configuración del dominio personalizado en Cloudflare Pages.
+- Configuración del dominio personalizado adicional (si el cliente adquiere un dominio propio fuera de pages.dev).

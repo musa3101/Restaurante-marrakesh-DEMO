@@ -90,7 +90,7 @@
 
   </style>
 </head>
-<body class="font-body relative flex items-center justify-center">
+<body class="font-body relative flex items-center justify-center no-cursor">
 
   <!-- Patrón de Fondo de Marrakech -->
   <div class="absolute inset-0 moroccan-pattern pointer-events-none"></div>
@@ -302,6 +302,18 @@
       }, 3000);
     });
 
+    function preloadImages(urls) {
+      const promises = urls.map(url => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve; // resolver de todos modos para no bloquear
+          img.src = url;
+        });
+      });
+      return Promise.all(promises);
+    }
+
     function init() {
       const params = new URLSearchParams(window.location.search);
       const langParam = params.get('lang') || 'es';
@@ -322,52 +334,51 @@
       document.getElementById("img-menu-right").src = pathMenuRight;
       document.getElementById("bg-menu-right").src = pathMenuRight;
 
-
-
-      // Iniciar bucle
-      startLoop(pathPortada, pathMenuLeft, pathMenuRight);
+      // Precargar imágenes antes de iniciar la animación para evitar parpadeos o pantallas en negro
+      preloadImages([pathPortada, pathMenuLeft, pathMenuRight]).then(() => {
+        startLoop();
+      });
     }
 
-    function startLoop(pathPortada, pathMenuLeft, pathMenuRight) {
+    function startLoop() {
       const slidePortada = document.getElementById("slide-portada");
       const slideMenu = document.getElementById("slide-menu");
 
-      // Precarga suave de imágenes para evitar parpadeos en televisores lentos
-      window.onload = function() {
-        const imagesToPreload = [pathPortada, pathMenuLeft, pathMenuRight];
-        imagesToPreload.forEach((src) => {
-          const img = new Image();
-          img.src = src;
-        });
-      };
-
       function showPortada() {
-        slideMenu.classList.remove("active");
+        slidePortada.classList.remove("hidden");
+        
+        // Iniciamos transición (cross-fade)
+        setTimeout(() => {
+          slidePortada.classList.add("active");
+          slideMenu.classList.remove("active");
+        }, 50);
+
+        // Ocultamos la diapositiva anterior al finalizar el fade
         setTimeout(() => {
           slideMenu.classList.add("hidden");
-          slidePortada.classList.remove("hidden");
-          setTimeout(() => {
-            slidePortada.classList.add("active");
-          }, 50);
-        }, 1800); // Duración de la transición
+        }, 1900);
 
-        setTimeout(showMenu, TIME_PORTADA + 1800);
+        setTimeout(showMenu, TIME_PORTADA + 1900);
       }
 
       function showMenu() {
-        slidePortada.classList.remove("active");
+        slideMenu.classList.remove("hidden");
+        
+        // Iniciamos transición (cross-fade)
+        setTimeout(() => {
+          slideMenu.classList.add("active");
+          slidePortada.classList.remove("active");
+        }, 50);
+
+        // Ocultamos la diapositiva anterior al finalizar el fade
         setTimeout(() => {
           slidePortada.classList.add("hidden");
-          slideMenu.classList.remove("hidden");
-          setTimeout(() => {
-            slideMenu.classList.add("active");
-          }, 50);
-        }, 1800);
+        }, 1900);
 
-        setTimeout(showPortada, TIME_MENU + 1800);
+        setTimeout(showPortada, TIME_MENU + 1900);
       }
 
-      // Mostrar Portada Inicial
+      // Mostrar Portada Inicial sin pantallas negras intermedias
       slidePortada.classList.remove("hidden");
       setTimeout(() => {
         slidePortada.classList.add("active");

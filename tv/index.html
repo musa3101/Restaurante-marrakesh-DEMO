@@ -112,42 +112,59 @@
         <!-- Logo -->
         <div class="mx-auto w-20 h-20 rounded-full overflow-hidden border-2 border-tertiary shadow-lg mb-4 bg-neutral">
           <img src="assets/logo.jpg" alt="Logo Marrakech" class="w-full h-full object-cover">
+    <!-- Columna Izquierda: Mensaje de Bienvenida y Locales (Agrandado para Smart TV) -->
+    <div class="col-span-3 flex flex-col justify-start h-[90vh] bg-[#140E0C]/95 border border-tertiary/25 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.85)] relative overflow-hidden z-10 gap-10">
+      <!-- Cabecera -->
+      <div class="text-center">
+        <!-- Logo -->
+        <div class="mx-auto w-24 h-24 rounded-full overflow-hidden border-2 border-tertiary shadow-lg mb-5 bg-neutral">
+          <img src="assets/logo.jpg" alt="Logo Marrakech" class="w-full h-full object-cover">
         </div>
-        <h1 class="font-headline font-bold text-2xl text-gold-gradient tracking-wide uppercase leading-tight">Restaurantes Marrakech</h1>
-        <p class="text-[10px] font-label text-tertiary tracking-[0.25em] uppercase mt-1">Sabores de Marruecos</p>
+        <h1 class="font-headline font-black text-3xl text-gold-gradient tracking-wide uppercase leading-tight">Restaurantes</h1>
+        <h1 class="font-headline font-black text-3xl text-gold-gradient tracking-wide uppercase leading-tight">Marrakech</h1>
+        <p class="text-xs font-label text-tertiary/90 tracking-[0.28em] uppercase mt-2">Sabores de Marruecos</p>
       </div>
 
       <!-- Locales -->
-      <div class="border-t border-white/5 pt-8 flex flex-col gap-6 text-left">
-        <p class="text-[10px] text-white/40 uppercase tracking-widest font-label text-center mb-2">Nuestras Tiendas:</p>
+      <div class="border-t border-white/10 pt-8 flex flex-col gap-8 text-left">
+        <p class="text-xs text-white/40 uppercase tracking-widest font-label text-center mb-1">Nuestras Tiendas:</p>
         
-        <div class="flex items-start gap-3.5">
-          <span class="text-tertiary text-lg mt-0.5">📍</span>
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-tertiary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+          </svg>
           <div>
-            <strong class="text-white/90 block font-headline text-sm tracking-wide">PERE GARAU</strong>
-            <span class="text-white/50 text-[12px] block leading-tight mt-1">Plaza de Pere Garau, 18</span>
+            <strong class="text-white/95 block font-headline text-[17px] tracking-wide">PERE GARAU</strong>
+            <span class="text-white/60 text-[14px] block leading-tight mt-1.5 font-body">Plaza de Pere Garau, 18</span>
           </div>
         </div>
 
-        <div class="flex items-start gap-3.5">
-          <span class="text-tertiary text-lg mt-0.5">📍</span>
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-tertiary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+          </svg>
           <div>
-            <strong class="text-white/90 block font-headline text-sm tracking-wide">CAPITÀ VILA</strong>
-            <span class="text-white/50 text-[12px] block leading-tight mt-1">Carrer de Capità Vila, 14</span>
+            <strong class="text-white/95 block font-headline text-[17px] tracking-wide">CAPITÀ VILA</strong>
+            <span class="text-white/60 text-[14px] block leading-tight mt-1.5 font-body">Carrer de Capità Vila, 14</span>
           </div>
         </div>
 
-        <div class="flex items-start gap-3.5">
-          <span class="text-tertiary text-lg mt-0.5">📍</span>
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-tertiary shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+          </svg>
           <div>
-            <strong class="text-white/90 block font-headline text-sm tracking-wide text-nowrap">PLAZA DE LAS COLUMNAS</strong>
-            <span class="text-white/50 text-[12px] block leading-tight mt-1">Francesc Barceló i Combis, 4</span>
+            <strong class="text-white/95 block font-headline text-[17px] tracking-wide text-nowrap">PLAZA DE LAS COLUMNAS</strong>
+            <span class="text-white/60 text-[14px] block leading-tight mt-1.5 font-body">Francesc Barceló i Combis, 4</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Columna Central: Imagen de la Portada Física (Recortada en la base para eliminar direcciones duplicadas) -->
+    <!-- Columna Central: Imagen de la Portada Física -->
     <div class="col-span-6 flex justify-center items-center h-[94vh] z-10">
       <div class="h-[90vh] aspect-[1426/1750] rounded-2xl overflow-hidden border-[4px] border-tertiary/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-neutral-light relative">
         <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-20"></div>
@@ -155,57 +172,76 @@
       </div>
     </div>
 
-    <!-- Columna Derecha: Código QR Multilingüe -->
-    <div class="col-span-3 flex flex-col justify-center items-center h-[90vh] bg-[#140E0C]/90 border border-tertiary/20 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7)] z-10">
+    <!-- Columna Derecha: Código QR Multilingüe (Banderas en formato vectorial SVG a color real) -->
+    <div class="col-span-3 flex flex-col justify-center items-center h-[90vh] bg-[#140E0C]/95 border border-tertiary/25 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.85)] z-10">
       <div class="text-center mb-6">
-        <h3 class="text-gold-gradient font-headline text-md tracking-wider uppercase">Carta Multiidioma</h3>
-        <p class="text-white/50 text-xs mt-2 leading-relaxed font-semibold">Escanea con tu móvil</p>
+        <h3 class="text-gold-gradient font-headline text-xl font-black tracking-widest uppercase">Carta Multiidioma</h3>
+        <p class="text-white/60 text-sm mt-2 font-semibold">Escanea con tu móvil</p>
       </div>
       
       <!-- Código QR con Marco de Oro Premium -->
-      <div class="p-1 rounded-3xl bg-gradient-to-br from-tertiary via-amber-200 to-tertiary shadow-[0_10px_30px_rgba(212,168,75,0.25)]">
+      <div class="p-1.5 rounded-3xl bg-gradient-to-br from-tertiary via-amber-200 to-tertiary shadow-[0_10px_35px_rgba(212,168,75,0.3)]">
         <div class="bg-white p-3 rounded-[22px]">
-          <img id="qr-code-img" src="assets/qr.jpg" class="w-[125px] h-[125px] rounded-xl object-cover" alt="QR Menú" />
+          <img id="qr-code-img" src="assets/qr.jpg" class="w-[140px] h-[140px] rounded-xl object-cover" alt="QR Menú" />
         </div>
       </div>
 
-      <!-- Banderas e Idiomas Disponibles -->
+      <!-- Banderas vectoriales SVG a color (Soluciona el problema de banderas en blanco y negro en televisores) -->
       <div class="mt-6 w-full text-center">
-        <p class="text-[9px] text-white/40 uppercase tracking-widest font-label mb-2">Idiomas disponibles:</p>
-        <div class="flex items-center justify-center gap-3 bg-neutral/40 border border-white/5 px-3 py-2 rounded-full">
-          <div class="flex items-center gap-1 text-xs">
-            <span>🇪🇸</span> <span class="text-white/70 text-[10px] font-bold">ES</span>
+        <p class="text-[10px] text-white/40 uppercase tracking-widest font-label mb-3">Idiomas disponibles:</p>
+        <div class="flex items-center justify-center gap-3.5 bg-neutral/40 border border-white/10 px-4 py-2.5 rounded-full">
+          <!-- España -->
+          <div class="flex items-center gap-1.5">
+            <svg class="w-6 h-4 rounded-sm shadow-md" viewBox="0 0 750 500">
+              <rect width="750" height="500" fill="#c11a2a"/>
+              <rect y="125" width="750" height="250" fill="#fabd00"/>
+            </svg>
+            <span class="text-white/90 text-[11px] font-bold">ES</span>
           </div>
           <div class="w-1 h-1 rounded-full bg-white/20"></div>
-          <div class="flex items-center gap-1 text-xs">
-            <span>🇬🇧</span> <span class="text-white/70 text-[10px] font-bold">EN</span>
+          <!-- Reino Unido -->
+          <div class="flex items-center gap-1.5">
+            <svg class="w-6 h-4 rounded-sm shadow-md" viewBox="0 0 50 30">
+              <rect width="50" height="30" fill="#00247d"/>
+              <path d="M0 0 L50 30 M50 0 L0 30" stroke="#fff" stroke-width="6"/>
+              <path d="M0 0 L50 30 M50 0 L0 30" stroke="#cf142b" stroke-width="4"/>
+              <path d="M25 0 V30 M0 15 H50" stroke="#fff" stroke-width="10"/>
+              <path d="M25 0 V30 M0 15 H50" stroke="#cf142b" stroke-width="6"/>
+            </svg>
+            <span class="text-white/90 text-[11px] font-bold">EN</span>
           </div>
           <div class="w-1 h-1 rounded-full bg-white/20"></div>
-          <div class="flex items-center gap-1 text-xs">
-            <span>🇫🇷</span> <span class="text-white/70 text-[10px] font-bold">FR</span>
+          <!-- Francia -->
+          <div class="flex items-center gap-1.5">
+            <svg class="w-6 h-4 rounded-sm shadow-md" viewBox="0 0 9 6">
+              <rect width="3" height="6" fill="#00209F"/>
+              <rect x="3" width="3" height="6" fill="#FFF"/>
+              <rect x="6" width="3" height="6" fill="#F31830"/>
+            </svg>
+            <span class="text-white/90 text-[11px] font-bold">FR</span>
           </div>
         </div>
       </div>
 
       <!-- Redes Sociales -->
-      <div class="mt-6 pt-5 border-t border-white/5 w-full flex flex-col items-center gap-3">
-        <p class="text-[9px] text-white/40 uppercase tracking-widest font-label">Síguenos en Redes:</p>
-        <div class="flex flex-col gap-2 w-full px-4">
+      <div class="mt-6 pt-5 border-t border-white/10 w-full flex flex-col items-center gap-3">
+        <p class="text-[10px] text-white/40 uppercase tracking-widest font-label">Síguenos en Redes:</p>
+        <div class="flex flex-col gap-3 w-full px-4">
           <!-- Instagram -->
-          <div class="flex items-center gap-2.5 text-xs text-white/70">
-            <svg class="w-4 h-4 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center gap-3 text-sm text-white/80">
+            <svg class="w-4.5 h-4.5 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
-            <span class="font-semibold">@tacos.marrakech</span>
+            <span class="font-semibold text-[13px]">@tacos.marrakech</span>
           </div>
           <!-- TikTok -->
-          <div class="flex items-center gap-2.5 text-xs text-white/70">
-            <svg class="w-4 h-4 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center gap-3 text-sm text-white/80">
+            <svg class="w-4.5 h-4.5 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
             </svg>
-            <span class="font-semibold text-[11px] truncate">@restaurantesmarrakech</span>
+            <span class="font-semibold text-[13px] truncate">@restaurantesmarrakech</span>
           </div>
         </div>
       </div>

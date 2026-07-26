@@ -345,40 +345,32 @@
       const slideMenu = document.getElementById("slide-menu");
 
       function showPortada() {
-        slidePortada.classList.remove("hidden");
-        
-        // Iniciamos transición (cross-fade)
-        setTimeout(() => {
-          slidePortada.classList.add("active");
-          slideMenu.classList.remove("active");
-        }, 50);
-
-        // Ocultamos la diapositiva anterior al finalizar el fade
+        slideMenu.classList.remove("active");
         setTimeout(() => {
           slideMenu.classList.add("hidden");
-        }, 1900);
+          slidePortada.classList.remove("hidden");
+          setTimeout(() => {
+            slidePortada.classList.add("active");
+          }, 50);
+        }, 1800); // Esperar a que se desvanezca la anterior
 
-        setTimeout(showMenu, TIME_PORTADA + 1900);
+        setTimeout(showMenu, TIME_PORTADA + 1800);
       }
 
       function showMenu() {
-        slideMenu.classList.remove("hidden");
-        
-        // Iniciamos transición (cross-fade)
-        setTimeout(() => {
-          slideMenu.classList.add("active");
-          slidePortada.classList.remove("active");
-        }, 50);
-
-        // Ocultamos la diapositiva anterior al finalizar el fade
+        slidePortada.classList.remove("active");
         setTimeout(() => {
           slidePortada.classList.add("hidden");
-        }, 1900);
+          slideMenu.classList.remove("hidden");
+          setTimeout(() => {
+            slideMenu.classList.add("active");
+          }, 50);
+        }, 1800); // Esperar a que se desvanezca la anterior
 
-        setTimeout(showPortada, TIME_MENU + 1900);
+        setTimeout(showPortada, TIME_MENU + 1800);
       }
 
-      // Mostrar Portada Inicial sin pantallas negras intermedias
+      // Mostrar Portada Inicial
       slidePortada.classList.remove("hidden");
       setTimeout(() => {
         slidePortada.classList.add("active");

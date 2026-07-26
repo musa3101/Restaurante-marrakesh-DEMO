@@ -1,25 +1,23 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Creación del Menú Digital para Smart TV (`/tv/`)**:
-   * Desarrollada una interfaz web optimizada para las 4 televisiones Samsung de 50" en formato horizontal (16:9).
-   * Creado un **bucle infinito de visualización automatizado** con transiciones suaves de fundido y escala.
-   * **Diapositiva 1 (Portada y Bienvenida - 10s):** Panel izquierdo con el logotipo y las direcciones de las 3 sucursales, portada en el centro recortada mediante CSS para eliminar duplicados, y código QR oficial JPG en alta resolución enmarcado en oro con banderas multiidioma a la derecha.
-   * **Diapositiva 2 (Carta Doble Maximizada - 35s):** Muestra las páginas 2 y 3 del menú en paralelo ocupando el 98% del alto (`h-[98vh]`) para máxima legibilidad, decorada con textos verticales dorados en los laterales.
-   * Eliminados todos los emojis genéricos reemplazándolos por iconos vectoriales SVG limpios.
-   * Eliminado el suavizado pixelado (`crisp-edges`) de las imágenes para garantizar fuentes totalmente nítidas y legibles en pantallas grandes.
-   * Implementada la precarga de imágenes para evitar parpadeos durante las transiciones.
-2. **Reubicación e Integración en el Proyecto Principal**:
-   * Ubicados todos los archivos de la televisión dentro de la subcarpeta `tv/` en la raíz del proyecto para evitar mezclas con la web móvil y mantener la modularidad.
-3. **Despliegue y Publicación en Cloudflare**:
-   * Subidos los cambios al repositorio de GitHub (`Restaurante-marrakesh-DEMO`) en las ramas `dev` y `main`.
-   * Desplegado en vivo en Cloudflare Pages, quedando accesible en: **`https://tacosmarrakech.pages.dev/tv/index.html`**
+1. **Solución de los Códigos QR Físicos Impresos**:
+   * Se volvió a crear el antiguo proyecto en Cloudflare (`restaurante-marrakesh-demo`) únicamente para gestionar redirecciones.
+   * Se configuró una regla 301 (`_redirects`) para que cualquier persona que escanee los menús físicos antiguos sea redirigida instantáneamente y sin errores al nuevo dominio oficial (`tacosmarrakech.pages.dev`).
+2. **Ajuste visual en Navegación Móvil (Header)**:
+   * Se modificó el comportamiento del menú de navegación superior en teléfonos móviles al hacer scroll.
+   * Ahora, al bajar, el fondo se vuelve oscuro con un efecto de desenfoque elegante (igual que en ordenador), en lugar de volverse 100% transparente.
 
 ## Archivos modificados
-- `tv/index.html` (Nueva interfaz de televisión)
-- `tv/assets/` (Logotipo, QR de alta calidad y folios del menú)
-- `docs/SESSION_LATEST_ES.md` (Esta documentación)
-- `docs/ROADMAP.md` (Roadmap actualizado)
+- Configuración en servidor Cloudflare (Nuevo proyecto `restaurante-marrakesh-demo` y `_redirects`).
+- `index.html` (Ajuste CSS del `.scrolled` en la media query para móviles).
+- `docs/SESSION_LATEST_ES.md` (Esta documentación).
+- `docs/ROADMAP.md` (Roadmap actualizado).
+
+## Problemas solucionados
+- Corregida la caída de los enlaces QR físicos impresos en las tiendas tras el cambio de nombre del dominio principal.
+- Mejorada la legibilidad del menú superior en la versión móvil al navegar por las diferentes secciones de la web.
 
 ## Qué queda pendiente
-- Pruebas físicas finales de carga en los navegadores de las televisiones del local.
+- Pruebas físicas finales de carga de las pantallas Smart TV directamente en los navegadores de las televisiones del local.
+- Configurar dominio personalizado extra en Cloudflare Pages (si el cliente lo requiere más adelante).

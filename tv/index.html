@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>Menú TV | Tacos Marrakech</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;800&family=Outfit:wght@500;700&display=swap" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        DEFAULT: '#C4632A',
+                        hover: '#A35222'
+                    },
+                    secondary: {
+                        DEFAULT: '#3B2314',
+                        light: '#4A2C19'
+                    },
+                    tertiary: {
+                        DEFAULT: '#D4A84B',
+                        hover: '#C2983F'
+                    },
+                    neutral: {
+                        DEFAULT: '#0A0706',
+                        light: '#1A1210',
+                        lighter: '#2A1D1A'
+                    }
+                },
+                fontFamily: {
+                    "headline": ["Cinzel", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Outfit", "sans-serif"]
+                }
+            }
+        }
+    }
+  </script>
+
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0A0706;
+        color: #ffffff;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        user-select: none;
+    }
+
+    .moroccan-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zM30 10L10 30L30 50L50 30L30 10z' fill='%23D4A84B' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #FFF0CA 0%, #F5C767 40%, #D4A84B 70%, #B8852B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Animación cinematográfica de transición: fundido + escala */
+    .slide-fade {
+        transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+        transform: scale(0.97);
+    }
+    
+    .slide-fade.active {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+
+    .no-cursor {
+        cursor: none !important;
+    }
+
+    /* Estilo de escritura vertical para los márgenes */
+    .vertical-text {
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+    }
+
+  </style>
+</head>
+<body class="font-body relative flex items-center justify-center">
+
+  <!-- Patrón de Fondo de Marrakech -->
+  <div class="absolute inset-0 moroccan-pattern pointer-events-none"></div>
+
+  <!-- ========================================================================= -->
+  <!-- DIAPOSITIVA 1: BIENVENIDA + PORTADA CENTRADA + QR MULTIIDIOMA             -->
+  <!-- ========================================================================= -->
+  <div id="slide-portada" class="slide-fade absolute inset-0 opacity-0 hidden grid grid-cols-12 w-full h-full p-6 gap-6 z-10 items-center overflow-hidden">
+    <!-- Fondo difuminado de Portada con overlay cálido oscuro -->
+    <div class="absolute inset-0 z-0 scale-105 filter blur-[35px] brightness-[0.25] contrast-[1.1]">
+      <img id="bg-portada" src="" class="w-full h-full object-cover" alt="" />
+    </div>
+    <div class="absolute inset-0 bg-[#0E0907]/60 z-0 pointer-events-none"></div>
+
+    <!-- Columna Izquierda: Mensaje de Bienvenida y Locales -->
+    <div class="col-span-3 flex flex-col justify-start h-[90vh] bg-[#140E0C]/90 border border-tertiary/20 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7)] relative overflow-hidden z-10 gap-10">
+      <!-- Cabecera -->
+      <div class="text-center">
+        <!-- Logo -->
+        <div class="mx-auto w-20 h-20 rounded-full overflow-hidden border-2 border-tertiary shadow-lg mb-4 bg-neutral">
+          <img src="assets/logo.jpg" alt="Logo Marrakech" class="w-full h-full object-cover">
+        </div>
+        <h1 class="font-headline font-bold text-2xl text-gold-gradient tracking-wide uppercase leading-tight">Restaurantes Marrakech</h1>
+        <p class="text-[10px] font-label text-tertiary tracking-[0.25em] uppercase mt-1">Sabores de Marruecos</p>
+      </div>
+
+      <!-- Locales -->
+      <div class="border-t border-white/5 pt-8 flex flex-col gap-6 text-left">
+        <p class="text-[10px] text-white/40 uppercase tracking-widest font-label text-center mb-2">Nuestras Tiendas:</p>
+        
+        <div class="flex items-start gap-3.5">
+          <span class="text-tertiary text-lg mt-0.5">📍</span>
+          <div>
+            <strong class="text-white/90 block font-headline text-sm tracking-wide">PERE GARAU</strong>
+            <span class="text-white/50 text-[12px] block leading-tight mt-1">Plaza de Pere Garau, 18</span>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <span class="text-tertiary text-lg mt-0.5">📍</span>
+          <div>
+            <strong class="text-white/90 block font-headline text-sm tracking-wide">CAPITÀ VILA</strong>
+            <span class="text-white/50 text-[12px] block leading-tight mt-1">Carrer de Capità Vila, 14</span>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <span class="text-tertiary text-lg mt-0.5">📍</span>
+          <div>
+            <strong class="text-white/90 block font-headline text-sm tracking-wide text-nowrap">PLAZA DE LAS COLUMNAS</strong>
+            <span class="text-white/50 text-[12px] block leading-tight mt-1">Francesc Barceló i Combis, 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Central: Imagen de la Portada Física (Recortada en la base para eliminar direcciones duplicadas) -->
+    <div class="col-span-6 flex justify-center items-center h-[94vh] z-10">
+      <div class="h-[90vh] aspect-[1426/1750] rounded-2xl overflow-hidden border-[4px] border-tertiary/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-neutral-light relative">
+        <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-20"></div>
+        <img id="img-portada" src="" class="w-full h-full object-cover object-top select-none" alt="Portada Menú" />
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Código QR Multilingüe -->
+    <div class="col-span-3 flex flex-col justify-center items-center h-[90vh] bg-[#140E0C]/90 border border-tertiary/20 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7)] z-10">
+      <div class="text-center mb-6">
+        <h3 class="text-gold-gradient font-headline text-md tracking-wider uppercase">Carta Multiidioma</h3>
+        <p class="text-white/50 text-xs mt-2 leading-relaxed font-semibold">Escanea con tu móvil</p>
+      </div>
+      
+      <!-- Código QR con Marco de Oro Premium -->
+      <div class="p-1 rounded-3xl bg-gradient-to-br from-tertiary via-amber-200 to-tertiary shadow-[0_10px_30px_rgba(212,168,75,0.25)]">
+        <div class="bg-white p-3 rounded-[22px]">
+          <img id="qr-code-img" src="assets/qr.jpg" class="w-[125px] h-[125px] rounded-xl object-cover" alt="QR Menú" />
+        </div>
+      </div>
+
+      <!-- Banderas e Idiomas Disponibles -->
+      <div class="mt-6 w-full text-center">
+        <p class="text-[9px] text-white/40 uppercase tracking-widest font-label mb-2">Idiomas disponibles:</p>
+        <div class="flex items-center justify-center gap-3 bg-neutral/40 border border-white/5 px-3 py-2 rounded-full">
+          <div class="flex items-center gap-1 text-xs">
+            <span>🇪🇸</span> <span class="text-white/70 text-[10px] font-bold">ES</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-white/20"></div>
+          <div class="flex items-center gap-1 text-xs">
+            <span>🇬🇧</span> <span class="text-white/70 text-[10px] font-bold">EN</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-white/20"></div>
+          <div class="flex items-center gap-1 text-xs">
+            <span>🇫🇷</span> <span class="text-white/70 text-[10px] font-bold">FR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="mt-6 pt-5 border-t border-white/5 w-full flex flex-col items-center gap-3">
+        <p class="text-[9px] text-white/40 uppercase tracking-widest font-label">Síguenos en Redes:</p>
+        <div class="flex flex-col gap-2 w-full px-4">
+          <!-- Instagram -->
+          <div class="flex items-center gap-2.5 text-xs text-white/70">
+            <svg class="w-4 h-4 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span class="font-semibold">@tacos.marrakech</span>
+          </div>
+          <!-- TikTok -->
+          <div class="flex items-center gap-2.5 text-xs text-white/70">
+            <svg class="w-4 h-4 text-tertiary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+            </svg>
+            <span class="font-semibold text-[11px] truncate">@restaurantesmarrakech</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- DIAPOSITIVA 2: CARTA DOBLE MAXIMIZADA A PANTALLA COMPLETA (SIN IMÁGENES)   -->
+  <!-- ========================================================================= -->
+  <div id="slide-menu" class="slide-fade absolute inset-0 opacity-0 hidden flex items-center justify-between overflow-hidden px-8 z-10">
+    <!-- Fondo difuminado compuesto con overlay cálido oscuro -->
+    <div class="absolute inset-0 z-0 scale-105 filter blur-[35px] brightness-[0.25] contrast-[1.1] flex">
+      <div class="w-1/2 h-full overflow-hidden">
+        <img id="bg-menu-left" src="" class="w-full h-full object-cover" alt="" />
+      </div>
+      <div class="w-1/2 h-full overflow-hidden">
+        <img id="bg-menu-right" src="" class="w-full h-full object-cover" alt="" />
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-[#0E0907]/60 z-0 pointer-events-none"></div>
+    
+    <!-- Texto vertical decorativo a la izquierda para rellenar de forma premium -->
+    <div class="vertical-text text-[11px] font-headline tracking-[0.35em] text-tertiary/40 uppercase select-none pointer-events-none">
+      • Tacos Marrakech Palma • Especialidades de Marruecos •
+    </div>
+
+    <!-- Contenedor Doble Central (Maximizado a h-[98vh] para máxima legibilidad) -->
+    <div class="flex gap-4 items-center justify-center h-[98vh] flex-1">
+      <!-- Página Izquierda (Pág 2) -->
+      <div class="h-[98vh] aspect-[1426/2000] rounded-2xl overflow-hidden border-[4px] border-tertiary/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-neutral-light relative">
+        <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-20"></div>
+        <img id="img-menu-left" src="" class="w-full h-full object-contain select-none" alt="Menú Izquierda" />
+      </div>
+      <!-- Página Derecha (Pág 3) -->
+      <div class="h-[98vh] aspect-[1426/2000] rounded-2xl overflow-hidden border-[4px] border-tertiary/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] bg-neutral-light relative">
+        <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-20"></div>
+        <img id="img-menu-right" src="" class="w-full h-full object-contain select-none" alt="Menú Derecha" />
+      </div>
+    </div>
+
+    <!-- Texto vertical decorativo a la derecha para rellenar de forma premium -->
+    <div class="vertical-text text-[11px] font-headline tracking-[0.35em] text-tertiary/40 uppercase select-none pointer-events-none rotate-180">
+      • Carta Oficial de Menú • Sabores de Marruecos •
+    </div>
+  </div>
+
+  <script>
+    const langFlags = {
+      es: "🇪🇸",
+      en: "🇬🇧",
+      fr: "🇫🇷"
+    };
+
+    // Tiempos optimizados de lectura lenta
+    const TIME_PORTADA = 10000; // 10 segundos para la portada
+    const TIME_MENU = 35000;    // 35 segundos para la carta doble (más de 3 veces más de tiempo)
+
+    // Ocultar cursor en inactividad
+    let cursorTimeout;
+    document.addEventListener("mousemove", () => {
+      document.body.classList.remove("no-cursor");
+      clearTimeout(cursorTimeout);
+      cursorTimeout = setTimeout(() => {
+        document.body.classList.add("no-cursor");
+      }, 3000);
+    });
+
+    function init() {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang') || 'es';
+      const flag = langFlags[langParam] || '🇪🇸';
+
+      // Rutas de imágenes
+      const pathPortada = `Carta A4.pdf/${flag}.png`;
+      const pathMenuLeft = `Carta A4.pdf/${flag} (2).png`;
+      const pathMenuRight = `Carta A4.pdf/${flag} (3).png`;
+
+      // Cargar imágenes
+      document.getElementById("img-portada").src = pathPortada;
+      document.getElementById("bg-portada").src = pathPortada;
+
+      document.getElementById("img-menu-left").src = pathMenuLeft;
+      document.getElementById("bg-menu-left").src = pathMenuLeft;
+
+      document.getElementById("img-menu-right").src = pathMenuRight;
+      document.getElementById("bg-menu-right").src = pathMenuRight;
+
+
+
+      // Iniciar bucle
+      startLoop();
+    }
+
+    function startLoop() {
+      const slidePortada = document.getElementById("slide-portada");
+      const slideMenu = document.getElementById("slide-menu");
+
+      // Precarga suave de imágenes para evitar parpadeos en televisores lentos
+      window.onload = function() {
+        const imagesToPreload = [pathPortada, pathMenuLeft, pathMenuRight];
+        imagesToPreload.forEach((src) => {
+          const img = new Image();
+          img.src = src;
+        });
+      };
+
+      function showPortada() {
+        slideMenu.classList.remove("active");
+        setTimeout(() => {
+          slideMenu.classList.add("hidden");
+          slidePortada.classList.remove("hidden");
+          setTimeout(() => {
+            slidePortada.classList.add("active");
+          }, 50);
+        }, 1800); // Duración de la transición
+
+        setTimeout(showMenu, TIME_PORTADA + 1800);
+      }
+
+      function showMenu() {
+        slidePortada.classList.remove("active");
+        setTimeout(() => {
+          slidePortada.classList.add("hidden");
+          slideMenu.classList.remove("hidden");
+          setTimeout(() => {
+            slideMenu.classList.add("active");
+          }, 50);
+        }, 1800);
+
+        setTimeout(showPortada, TIME_MENU + 1800);
+      }
+
+      // Mostrar Portada Inicial
+      slidePortada.classList.remove("hidden");
+      setTimeout(() => {
+        slidePortada.classList.add("active");
+      }, 50);
+      
+      setTimeout(showMenu, TIME_PORTADA);
+    }
+
+    window.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>

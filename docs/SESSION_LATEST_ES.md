@@ -1,27 +1,25 @@
 # Últimos Cambios de la Sesión
 
 ## ¿Qué se ha hecho hoy?
-1. **Cambio de Subdominio en Cloudflare Pages**:
-   - Eliminado el antiguo proyecto `restaurante-marrakesh-demo`.
-   - Creado y configurado el nuevo proyecto **`tacosmarrakech`** conectado al repositorio de GitHub.
-   - La web ahora está activa y desplegándose en su nuevo subdominio definitivo: **`tacosmarrakech.pages.dev`**, coincidiendo exactamente con los flyers físicos impresos por el cliente.
-
-2. **Reubicación de CTAs de Reserva**:
-   - Revertido el Hero principal para mostrar únicamente el botón de **"VER CARTA DIGITAL"** (diseño limpio original).
-   - Reemplazada la tarjeta de WhatsApp ("Escríbenos por WhatsApp") en la sección de contacto por el botón **"Reservar Mesa"** con icono temático (`table_restaurant`) y color ámbar unificado.
-
-3. **Auditoría y QA General de Código**:
-   - Resuelto el `SyntaxError` de GSAP en `index.html` cerrando correctamente su bucle.
-   - Limpiado el HTML eliminando etiquetas duplicadas de `</body>` y `</html>`.
-   - Corregida la sintaxis de la media-query CSS (`max-width` en lugar de `max-w`) para la transparencia del header al hacer scroll en móvil.
-   - Optimizada la visibilidad en móviles del distintivo "Visita VIP" a dos líneas y con mayor separación.
-   - Añadido margen al preloader para dar aire a las letras dinámicas.
-   - Eliminada la función duplicada `handleBack` en `menu.html` para asegurar un retorno limpio a `index.html#menu`.
+1. **Creación del Menú Digital para Smart TV (`/tv/`)**:
+   * Desarrollada una interfaz web optimizada para las 4 televisiones Samsung de 50" en formato horizontal (16:9).
+   * Creado un **bucle infinito de visualización automatizado** con transiciones suaves de fundido y escala.
+   * **Diapositiva 1 (Portada y Bienvenida - 10s):** Panel izquierdo con el logotipo y las direcciones de las 3 sucursales, portada en el centro recortada mediante CSS para eliminar duplicados, y código QR oficial JPG en alta resolución enmarcado en oro con banderas multiidioma a la derecha.
+   * **Diapositiva 2 (Carta Doble Maximizada - 35s):** Muestra las páginas 2 y 3 del menú en paralelo ocupando el 98% del alto (`h-[98vh]`) para máxima legibilidad, decorada con textos verticales dorados en los laterales.
+   * Eliminados todos los emojis genéricos reemplazándolos por iconos vectoriales SVG limpios.
+   * Eliminado el suavizado pixelado (`crisp-edges`) de las imágenes para garantizar fuentes totalmente nítidas y legibles en pantallas grandes.
+   * Implementada la precarga de imágenes para evitar parpadeos durante las transiciones.
+2. **Reubicación e Integración en el Proyecto Principal**:
+   * Ubicados todos los archivos de la televisión dentro de la subcarpeta `tv/` en la raíz del proyecto para evitar mezclas con la web móvil y mantener la modularidad.
+3. **Despliegue y Publicación en Cloudflare**:
+   * Subidos los cambios al repositorio de GitHub (`Restaurante-marrakesh-DEMO`) en las ramas `dev` y `main`.
+   * Desplegado en vivo en Cloudflare Pages, quedando accesible en: **`https://tacosmarrakech.pages.dev/tv/index.html`**
 
 ## Archivos modificados
-- `index.html` (Cambios de CTAs, correcciones estructurales, media-query y VIP badge).
-- `menu.html` (Corrección de redundancia en script JS).
-- `assets/js/supabase-client.js` (Cambio a credenciales de producción del proyecto `feikeytbrxtsooaxsvjt` y resolución de conflicto de alcance local con `supabaseClient`).
+- `tv/index.html` (Nueva interfaz de televisión)
+- `tv/assets/` (Logotipo, QR de alta calidad y folios del menú)
+- `docs/SESSION_LATEST_ES.md` (Esta documentación)
+- `docs/ROADMAP.md` (Roadmap actualizado)
 
 ## Qué queda pendiente
-- Configuración del dominio personalizado adicional (si el cliente adquiere un dominio propio fuera de pages.dev).
+- Pruebas físicas finales de carga en los navegadores de las televisiones del local.

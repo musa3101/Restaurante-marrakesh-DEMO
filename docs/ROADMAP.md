@@ -23,11 +23,15 @@
   - [x] Optimización de renderizado para Smart TV 4K de 50".
   - [x] Integración en el repositorio único dentro de la carpeta `tv/`.
   - [x] Publicación live en Cloudflare Pages.
+  - [x] Ocultación por defecto del cursor de ratón en Smart TV.
+  - [x] Corrección de tamaño y deformación de logos de Instagram/TikTok.
+  - [x] Precarga de imágenes de la carta para eliminar parpadeos.
+  - [x] Restauración de transición de salida/entrada suave clásica (fade-out/fade-in secuencial).
 - [x] Configuración de redirección 301 en Cloudflare para mantener la compatibilidad de los códigos QR físicos ya impresos.
 - [x] Ajuste visual del menú de navegación móvil (fondo oscuro en lugar de transparente al hacer scroll).
 
 ## Tareas en Progreso
-- [ ] Pruebas finales en el local de la visualización en los navegadores de las televisiones.
+*Ninguna actualmente. El menú de la Smart TV y la web en producción están 100% operativos y optimizados.*
 
 ## Próximas Mejoras Prioritarias
 - [ ] Configurar dominio personalizado en Cloudflare Pages (si el cliente lo requiere más adelante).

@@ -119,51 +119,21 @@
     </div>
   </header>
 
-  <!-- Compact Page Navigation Helper -->
-  <div class="mt-2 px-3 sticky top-[60px] z-20">
-    <div class="max-w-md mx-auto bg-neutral-light/95 backdrop-blur-md border border-white/10 rounded-full p-1 flex justify-between text-[11px] font-label text-white/60 shadow-lg">
-      <button onclick="scrollToPage(1)" class="page-nav-btn flex-1 py-1 rounded-full hover:text-white transition-all text-center font-bold" data-page="1">
-        <span data-i18n="page1-name">Portada</span>
-      </button>
-      <button onclick="scrollToPage(2)" class="page-nav-btn flex-1 py-1 rounded-full hover:text-white transition-all text-center font-bold" data-page="2">
-        <span data-i18n="page2-name">Desayunos y Platos</span>
-      </button>
-      <button onclick="scrollToPage(3)" class="page-nav-btn flex-1 py-1 rounded-full hover:text-white transition-all text-center font-bold" data-page="3">
-        <span data-i18n="page3-name">Pinchitos y Más</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Main Content - Menu Images -->
-  <main class="flex-1 max-w-2xl mx-auto px-4 mt-8 w-full flex flex-col gap-8 md:gap-10">
+  <!-- Main Content - Menu Images (Ultra Clean, Full Width, No Overlay Badges) -->
+  <main class="flex-1 max-w-3xl mx-auto px-2 sm:px-4 mt-4 w-full flex flex-col gap-5 md:gap-6 relative z-10">
     <!-- Page 1 -->
-    <div id="page-container-1" class="relative group scroll-mt-52">
-      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p1-label">
-        Portada
-      </div>
-      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
-        <img id="img-menu-1" src="assets/menu_nuevo/es/pagina_1.webp" alt="Carta Tacos Marrakech - Página 1" class="w-full h-auto block select-none" loading="eager">
-      </div>
+    <div id="page-container-1" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-1" src="assets/menu_nuevo/es/pagina_1.webp" alt="Carta Tacos Marrakech - Página 1" class="w-full h-auto block select-none rounded-2xl" loading="eager">
     </div>
 
     <!-- Page 2 -->
-    <div id="page-container-2" class="relative group scroll-mt-52">
-      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p2-label">
-        Página 2
-      </div>
-      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
-        <img id="img-menu-2" src="assets/menu_nuevo/es/pagina_2.webp" alt="Carta Tacos Marrakech - Página 2" class="w-full h-auto block select-none" loading="lazy">
-      </div>
+    <div id="page-container-2" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-2" src="assets/menu_nuevo/es/pagina_2.webp" alt="Carta Tacos Marrakech - Página 2" class="w-full h-auto block select-none rounded-2xl" loading="lazy">
     </div>
 
     <!-- Page 3 -->
-    <div id="page-container-3" class="relative group scroll-mt-52">
-      <div class="absolute -top-3 left-4 bg-primary text-white font-label font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-lg z-10 border border-white/10" data-i18n="p3-label">
-        Página 3
-      </div>
-      <div class="overflow-hidden rounded-2xl border border-white/5 shadow-xl bg-neutral-light">
-        <img id="img-menu-3" src="assets/menu_nuevo/es/pagina_3.webp" alt="Carta Tacos Marrakech - Página 3" class="w-full h-auto block select-none" loading="lazy">
-      </div>
+    <div id="page-container-3" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-3" src="assets/menu_nuevo/es/pagina_3.webp" alt="Carta Tacos Marrakech - Página 3" class="w-full h-auto block select-none rounded-2xl" loading="lazy">
     </div>
   </main>
 

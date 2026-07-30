@@ -12,6 +12,8 @@
      * Carta ultra limpia multi-idioma (ES, EN, FR) para escaneo en mesa, sin estorbos ni textos sobrepuestos.
    - **Favicon & Vista Previa Open Graph**:
      * Configurado Favicon oficial con el logo redondo y etiquetas Open Graph (`og:image`, `og:title`, etc.) para una vista previa impecable al compartir por WhatsApp o redes sociales.
+   - **Microsoft Clarity Dedicado para Pere Garau**:
+     * Integrado el código oficial de analítica e impresiones calientes de Microsoft Clarity (`xuj345jznv`) en `peregarau/index.html` y `peregarau/menu.html`.
 
 2. **Ajustes en la Web Principal (`index.html` y `menu.html`)**:
    - **Cambio de Nombre de Tienda**: Cambiada la etiqueta de *"Llevant"* por **`Plaza Columnas`** (`Francesc Barceló i Combis, 4`) en la sección "Dónde Estamos".
@@ -28,8 +30,8 @@
      * 📺 Web Smart TV: [`tacosmarrakech.pages.dev/tv/`](https://tacosmarrakech.pages.dev/tv/)
 
 ## Archivos modificados y creados
-- `peregarau/index.html` (Landing page del restaurante de Pere Garau).
-- `peregarau/menu.html` (Carta digital para código QR).
+- `peregarau/index.html` (Landing page del restaurante de Pere Garau + Clarity `xuj345jznv`).
+- `peregarau/menu.html` (Carta digital para código QR + Clarity `xuj345jznv`).
 - `menu.html` (Carta digital de la web principal).
 - `index.html` (Cambio a Plaza Columnas y enlace a Pere Garau).
 - `README.md` (Tabla de enlaces oficiales en la portada).
@@ -40,6 +42,7 @@
 - Creada la landing e infraestructura para Pere Garau con carta digital QR dedicada sin alterar la web principal.
 - Corregida la orientación e intervalos del preloader.
 - Configurada la vista previa de WhatsApp / Open Graph y Favicons oficiales.
+- Integrado Microsoft Clarity específico para el proyecto `tacos marra- peregarau`.
 
 ## Qué queda pendiente
 - Imprimir pegatinas físicas de código QR apuntando a `https://tacosmarrakech.pages.dev/peregarau/menu`.

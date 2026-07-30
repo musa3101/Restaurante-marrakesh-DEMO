@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <!-- Microsoft Clarity Analytics -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xrkh712a2y");
+  </script>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+  <title>Carta Digital | Marrakech Pere Garau</title>
+  <meta name="description" content="Carta digital oficial del restaurante Tacos Marrakech en Plaza de Pere Garau, 18. Consulta nuestra carta en español, inglés y francés."/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../assets/logofotter.jpg"/>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Carta Digital | Marrakech Pere Garau"/>
+  <meta property="og:description" content="Carta digital oficial de Tacos Marrakech en Plaza de Pere Garau, 18. Tacos XXL, Burgers Halal y Té Moruno."/>
+  <meta property="og:image" content="hero/4bba8254-61b9-4c74-b63a-446d8be3ba18.JPG"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        DEFAULT: '#C4632A',
+                        hover: '#A35222'
+                    },
+                    secondary: {
+                        DEFAULT: '#3B2314',
+                        light: '#4A2C19'
+                    },
+                    tertiary: {
+                        DEFAULT: '#D4A84B',
+                        hover: '#C2983F'
+                    },
+                    accent: {
+                        DEFAULT: '#4CAF7D'
+                    },
+                    neutral: {
+                        DEFAULT: '#0A0706',
+                        light: '#1A1210',
+                        lighter: '#2A1D1A'
+                    }
+                },
+                fontFamily: {
+                    "headline": ["Cinzel", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Outfit", "sans-serif"]
+                }
+            }
+        }
+    }
+  </script>
+
+  <style>
+    /* Moroccan pattern opacity */
+    .moroccan-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zM30 10L10 30L30 50L50 30L30 10z' fill='%23D4A84B' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    /* Custom Gold Text Gradient */
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #FFF0CA 0%, #F5C767 40%, #D4A84B 70%, #B8852B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    body {
+        -webkit-tap-highlight-color: transparent;
+        scroll-behavior: smooth;
+    }
+
+    /* Active language selector state */
+    .lang-btn.active {
+        background-color: #D4A84B;
+        color: #0A0706;
+        box-shadow: 0 4px 15px rgba(212, 168, 75, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-neutral text-white font-body min-h-screen relative flex flex-col pb-12 antialiased selection:bg-primary selection:text-white">
+  
+  <div class="fixed inset-0 moroccan-pattern opacity-10 pointer-events-none z-0"></div>
+
+  <!-- Header (Back Link, Brand Title, Language Tabs) -->
+  <header class="sticky top-0 z-40 bg-neutral/95 backdrop-blur-md border-b border-white/10 h-[62px] px-3 sm:px-4 shadow-xl flex items-center">
+    <div class="w-full max-w-4xl mx-auto flex items-center justify-between">
+      
+      <!-- Back Link -->
+      <button onclick="handleBack()" class="flex items-center gap-1 text-white/80 hover:text-tertiary transition-colors group text-xs font-label uppercase tracking-wider bg-white/5 border border-white/10 px-2.5 py-1.5 rounded-full active:scale-95 cursor-pointer shrink-0">
+        <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-0.5">arrow_back</span>
+        <span>Atrás</span>
+      </button>
+
+      <!-- Brand Title -->
+      <div class="text-center px-1">
+        <h1 class="font-headline font-bold text-sm sm:text-base md:text-lg text-gold-gradient tracking-[0.15em] uppercase leading-tight">Marrakech</h1>
+        <p class="text-[8px] sm:text-[9px] font-label text-amber-400/90 tracking-[0.2em] uppercase font-bold">Pere Garau — Carta Digital</p>
+      </div>
+
+      <!-- Integrated Language Pills -->
+      <div class="flex items-center gap-0.5 bg-neutral-light border border-white/10 p-0.5 rounded-full text-[10px] font-label font-bold uppercase shrink-0">
+        <button onclick="setLanguage('es')" id="btn-lang-es" class="lang-btn active px-2.5 py-1 rounded-full transition-all">ES</button>
+        <button onclick="setLanguage('en')" id="btn-lang-en" class="lang-btn px-2.5 py-1 rounded-full transition-all text-white/70">EN</button>
+        <button onclick="setLanguage('fr')" id="btn-lang-fr" class="lang-btn px-2.5 py-1 rounded-full transition-all text-white/70">FR</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content - Pure Menu Pages (Ultra Clean, Full Width, No Labels) -->
+  <main class="flex-1 max-w-3xl mx-auto px-2 sm:px-4 mt-4 w-full flex flex-col gap-5 md:gap-6 relative z-10">
+    
+    <!-- Page 1 (Portada) -->
+    <div id="page-container-1" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-1" src="menu/pagina_1.webp" alt="Carta Pere Garau - 1" class="w-full h-auto block select-none rounded-2xl" loading="eager">
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page-container-2" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-2" src="menu/pagina_2.webp" alt="Carta Pere Garau - 2" class="w-full h-auto block select-none rounded-2xl" loading="lazy">
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page-container-3" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-3" src="menu/pagina_3.webp" alt="Carta Pere Garau - 3" class="w-full h-auto block select-none rounded-2xl" loading="lazy">
+    </div>
+
+    <!-- Page 4 -->
+    <div id="page-container-4" class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-neutral-light">
+      <img id="img-menu-4" src="menu/pagina_4.webp" alt="Carta Pere Garau - 4" class="w-full h-auto block select-none rounded-2xl" loading="lazy">
+    </div>
+
+  </main>
+
+  <!-- Interactive Floating Zoom Hint -->
+  <div class="text-center mt-6 mb-4 text-xs text-white/40 px-4 relative z-10 font-light">
+    <span class="material-symbols-outlined align-middle text-sm mr-1 text-tertiary">zoom_in</span>
+    <span>Pellizca la pantalla o haz zoom para ampliar los detalles de la carta.</span>
+  </div>
+
+  <!-- Script Translation & Interactivity -->
+  <script>
+    function handleBack() {
+      if (document.referrer && document.referrer.includes(window.location.host)) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    const menuLanguages = {
+      es: {
+        p1: 'menu/pagina_1.webp',
+        p2: 'menu/pagina_2.webp',
+        p3: 'menu/pagina_3.webp',
+        p4: 'menu/pagina_4.webp'
+      },
+      en: {
+        p1: 'menu/pagina_5.webp',
+        p2: 'menu/pagina_6.webp',
+        p3: 'menu/pagina_7.webp',
+        p4: 'menu/pagina_8.webp'
+      },
+      fr: {
+        p1: 'menu/pagina_9.webp',
+        p2: 'menu/pagina_10.webp',
+        p3: 'menu/pagina_11.webp',
+        p4: 'menu/pagina_12.webp'
+      }
+    };
+
+    function setLanguage(lang) {
+      // Update active button state
+      ['es', 'en', 'fr'].forEach(l => {
+        const btn = document.getElementById(`btn-lang-${l}`);
+        if (btn) {
+          if (l === lang) {
+            btn.classList.add('active');
+            btn.classList.remove('text-white/70');
+          } else {
+            btn.classList.remove('active');
+            btn.classList.add('text-white/70');
+          }
+        }
+      });
+
+      const data = menuLanguages[lang] || menuLanguages['es'];
+      
+      const img1 = document.getElementById('img-menu-1');
+      const img2 = document.getElementById('img-menu-2');
+      const img3 = document.getElementById('img-menu-3');
+      const img4 = document.getElementById('img-menu-4');
+
+      if (img1) img1.src = data.p1;
+      if (img2) img2.src = data.p2;
+      if (img3) img3.src = data.p3;
+      if (img4) img4.src = data.p4;
+    }
+  </script>
+</body>
+</html>

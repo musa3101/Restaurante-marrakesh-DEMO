@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <!-- Microsoft Clarity Analytics -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xrkh712a2y");
+  </script>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+  <title>Marrakech Pere Garau | Carta Digital & Restaurante en Palma</title>
+  <meta name="description" content="Restaurante Tacos Marrakech en Plaza de Pere Garau, 18 (Palma). Disfruta de la mejor gastronomía tradicional marroquí, Tacos XXL, Burgers Halal y Té Moruno."/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../assets/logofotter.jpg"/>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Marrakech Pere Garau | Carta Digital & Restaurante"/>
+  <meta property="og:description" content="Restaurante Tacos Marrakech en Plaza de Pere Garau, 18. Tacos XXL, Burgers Halal y Té Moruno en Palma."/>
+  <meta property="og:image" content="hero/4bba8254-61b9-4c74-b63a-446d8be3ba18.JPG"/>
+
+  <!-- Swiper CSS (For Hero Carousel) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- GSAP for smooth animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        DEFAULT: '#C4632A',
+                        hover: '#A35222'
+                    },
+                    secondary: {
+                        DEFAULT: '#3B2314',
+                        light: '#4A2C19'
+                    },
+                    tertiary: {
+                        DEFAULT: '#D4A84B',
+                        hover: '#C2983F'
+                    },
+                    accent: {
+                        DEFAULT: '#4CAF7D'
+                    },
+                    neutral: {
+                        DEFAULT: '#1A1210',
+                        light: '#2A1D1A',
+                        darker: '#0A0706'
+                    }
+                },
+                fontFamily: {
+                    "headline": ["Cinzel", "Playfair Display", "serif"],
+                    "display": ["Playfair Display", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Outfit", "sans-serif"]
+                }
+            }
+        }
+    }
+  </script>
+
+  <style>
+    /* Moroccan pattern background overlay */
+    .moroccan-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zM30 10L10 30L30 50L50 30L30 10z' fill='%23D4A84B' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    /* Custom Gold Text Gradient */
+    .text-gold-gradient {
+        background: linear-gradient(135deg, #FFF0CA 0%, #F5C767 40%, #D4A84B 70%, #B8852B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    body {
+        -webkit-tap-highlight-color: transparent;
+        scroll-behavior: smooth;
+    }
+
+    /* Swiper Ken Burns & Smooth Crossfade Effect */
+    .heroSwiper .swiper-slide img {
+        transition: transform 6.5s ease-out, opacity 2.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1.02);
+    }
+    /* Preloader Animation for Pere Garau */
+    #load {
+      position: absolute;
+      width: 600px;
+      height: 36px;
+      left: 50%;
+      top: 50%;
+      margin-left: -300px;
+      overflow: visible;
+      user-select: none;
+      cursor: default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #load div {
+      position: absolute;
+      width: 20px;
+      height: 36px;
+      opacity: 0;
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      animation: move 2s linear infinite;
+      -webkit-animation: move 2s linear infinite;
+    }
+    /* Moroccan Flag Tricolor Scheme (Red • Gold • Emerald Green) */
+    #load div:nth-child(1) { color: #EF4444; text-shadow: 0 0 14px rgba(239, 68, 68, 0.85); }
+    #load div:nth-child(2) { color: #F59E0B; text-shadow: 0 0 14px rgba(245, 158, 11, 0.85); animation-delay: 0.2s; -webkit-animation-delay: 0.2s; }
+    #load div:nth-child(3) { color: #10B981; text-shadow: 0 0 14px rgba(16, 185, 129, 0.85); animation-delay: 0.4s; -webkit-animation-delay: 0.4s; }
+    #load div:nth-child(4) { color: #EF4444; text-shadow: 0 0 14px rgba(239, 68, 68, 0.85); animation-delay: 0.6s; -webkit-animation-delay: 0.6s; }
+    #load div:nth-child(5) { color: #F59E0B; text-shadow: 0 0 14px rgba(245, 158, 11, 0.85); animation-delay: 0.8s; -webkit-animation-delay: 0.8s; }
+    #load div:nth-child(6) { color: #10B981; text-shadow: 0 0 14px rgba(16, 185, 129, 0.85); animation-delay: 1.0s; -webkit-animation-delay: 1.0s; }
+    #load div:nth-child(7) { color: #EF4444; text-shadow: 0 0 14px rgba(239, 68, 68, 0.85); animation-delay: 1.2s; -webkit-animation-delay: 1.2s; }
+    @keyframes move {
+      0% { left: 0%; opacity: 0; }
+      35% { opacity: 1; }
+      65% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+    @-webkit-keyframes move {
+      0% { left: 0%; opacity: 0; }
+      35% { opacity: 1; }
+      65% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-neutral text-white font-body min-h-screen relative flex flex-col antialiased selection:bg-primary selection:text-white">
+
+  <!-- ============================================ -->
+  <!-- PAGE PRELOADER (Pere Garau Moroccan Theme)   -->
+  <!-- ============================================ -->
+  <div id="page-preloader" class="fixed inset-0 z-[999999] bg-[#0A0706] flex flex-col items-center justify-center transition-opacity duration-500 select-none">
+    <div class="flex flex-col items-center justify-center gap-4 relative">
+      
+      <!-- Spinning Gold & Emerald Moroccan Star -->
+      <div class="w-16 h-16 rounded-full border border-amber-500/40 bg-black/90 flex items-center justify-center shadow-[0_0_35px_rgba(212,168,75,0.4)] mb-2 relative">
+        <div class="absolute inset-0 rounded-full border border-emerald-500/30 animate-ping opacity-30"></div>
+        <svg class="w-9 h-9 text-amber-400 animate-spin" style="animation-duration: 9s;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 5 L61.8 25.5 L85.4 14.6 L74.5 38.2 L95 50 L74.5 61.8 L85.4 85.4 L61.8 74.5 L50 95 L38.2 74.5 L14.6 85.4 L25.5 61.8 L5 50 L25.5 38.2 L14.6 14.6 L38.2 25.5 Z" fill="#D4A84B" fill-opacity="0.25" stroke="#D4A84B" stroke-width="2"/>
+          <circle cx="50" cy="50" r="10" fill="#D4A84B"/>
+        </svg>
+      </div>
+
+      <!-- Animated Loading Lettering (Right-Side Up: L O A D I N G) -->
+      <div id="load">
+        <div>L</div>
+        <div>O</div>
+        <div>A</div>
+        <div>D</div>
+        <div>I</div>
+        <div>N</div>
+        <div>G</div>
+      </div>
+
+      <!-- Brand & Location Badge -->
+      <div class="text-center mt-12 flex flex-col items-center gap-1.5">
+        <p class="font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 text-sm tracking-[0.3em] uppercase">Tacos Marrakech</p>
+        <span class="inline-block font-label text-[10px] text-emerald-400 uppercase tracking-[0.25em] font-extrabold px-3 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 shadow-sm">
+          PERE GARAU • PALMA
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Moroccan Background Pattern -->
+  <div class="fixed inset-0 moroccan-pattern opacity-15 pointer-events-none z-0"></div>
+
+  <!-- STICKY NAVBAR (Swiss Minimalist Glass Header with Centered Title & Hamburger Menu) -->
+  <header class="sticky top-0 z-50 bg-neutral/95 backdrop-blur-md border-b border-amber-500/10 h-16 px-4 shadow-xl flex items-center transition-all duration-300">
+    <div class="w-full max-w-6xl mx-auto flex items-center justify-between">
+      
+      <!-- Hamburger Menu Button -->
+      <button onclick="toggleMobileNav()" class="flex items-center justify-center text-white/90 hover:text-tertiary transition-all duration-300 w-9 h-9 rounded-full bg-white/5 border border-white/10 active:scale-95 group cursor-pointer" aria-label="Abrir Menú">
+        <span class="material-symbols-outlined text-xl transition-transform group-hover:scale-110">menu</span>
+      </button>
+
+      <!-- Brand Title Centered -->
+      <div class="text-center px-2">
+        <h1 class="font-headline font-bold text-base sm:text-lg text-gold-gradient tracking-wider uppercase leading-tight">Marrakech</h1>
+        <p class="text-[8px] font-label text-amber-400/90 tracking-[0.25em] uppercase font-bold">Pere Garau</p>
+      </div>
+
+      <!-- TikTok Profile Button -->
+      <a href="https://vm.tiktok.com/ZN8eSq29A/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-black/60 hover:bg-black/80 text-white font-label font-bold px-3 py-1.5 rounded-full text-[11px] uppercase tracking-[0.15em] border border-white/20 hover:border-amber-400/50 transition-all shadow-md active:scale-95 group">
+        <svg class="w-4 h-4 text-white fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+          <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.896c.247 0 .487.032.716.091V9.38a6.34 6.34 0 0 0-.716-.041 6.342 6.342 0 1 0 6.342 6.342V9.06a8.205 8.205 0 0 0 4.887 1.583V7.202a4.83 4.83 0 0 1-1.118-.516z"/>
+        </svg>
+        <span class="hidden sm:inline">TikTok</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Modal / Drawer (Identical to Main Site Luxury Design - Solid Dark Background) -->
+  <div id="mobile-nav-drawer" class="fixed inset-0 bg-[#0A0706] z-50 flex flex-col justify-between p-6 opacity-0 pointer-events-none transition-all duration-300">
+    
+    <!-- Header Inside Drawer: Logo + Close -->
+    <div class="flex items-center justify-between w-full pb-4 border-b border-amber-500/10 relative z-10">
+      <div class="flex items-center gap-3">
+        <!-- Detailed Geometric Moroccan Star -->
+        <div class="relative w-8 h-8 flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-500/20 rounded-full blur-md"></div>
+          <svg class="w-8 h-8 text-tertiary relative z-10 filter drop-shadow-[0_2px_8px_rgba(212,168,75,0.4)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 2 L64 36 L98 50 L64 64 L50 98 L36 64 L2 50 L36 36 Z" fill="#D4A84B" />
+            <circle cx="50" cy="50" r="14" fill="#0C0807" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="50" cy="50" r="6" fill="#F59E0B"/>
+          </svg>
+        </div>
+        <div class="text-left">
+          <span class="text-base font-headline font-black tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 block leading-tight">Tacos Marrakech</span>
+          <span class="text-[9px] font-label text-amber-400/90 tracking-[0.25em] uppercase font-bold">Pere Garau</span>
+        </div>
+      </div>
+      
+      <button onclick="toggleMobileNav()" class="w-9.5 h-9.5 rounded-full bg-white/5 border border-white/10 hover:border-amber-400 text-white/80 hover:text-black hover:bg-amber-400 flex items-center justify-center transition-all duration-300 shadow-md shadow-black/40 cursor-pointer active:scale-90" aria-label="Cerrar menú">
+        <span class="material-symbols-outlined text-base">close</span>
+      </button>
+    </div>
+
+    <!-- Top Separador de Sección Bandera de Marruecos -->
+    <div class="w-full max-w-[280px] flex items-center justify-center my-3 mx-auto relative z-10">
+      <div class="w-full flex items-center justify-center relative">
+        <div class="absolute inset-0 h-[1px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+        <div class="relative z-10 w-8 h-8 rounded-full bg-[#0C0807] border border-[#006233]/60 flex items-center justify-center shadow-lg shadow-[#006233]/30">
+          <svg class="w-4 h-4 text-[#006233] drop-shadow-[0_0_4px_rgba(0,98,51,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clean Typography Links Section (Cinzel Serif, Unboxed, Identical to Main Site) -->
+    <div class="flex flex-col items-center gap-6 my-auto text-center relative z-10">
+      <a class="font-headline text-2xl font-extrabold text-gold-gradient tracking-widest uppercase hover:scale-105 transition-transform" href="index.html" onclick="toggleMobileNav()">Inicio</a>
+      <a class="font-headline text-xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest hover:scale-105 transition-transform" href="menu.html" onclick="toggleMobileNav()">Carta Digital</a>
+      <a class="font-headline text-xl font-bold text-white/90 hover:text-tertiary transition-colors uppercase tracking-widest hover:scale-105 transition-transform" href="#contacto" onclick="toggleMobileNav()">Ubicación & Contacto</a>
+      <a class="font-headline text-xl font-bold text-amber-300/90 hover:text-amber-200 transition-colors uppercase tracking-widest hover:scale-105 transition-transform" href="../index.html">Web Principal</a>
+    </div>
+
+    <!-- Bottom Separador de Sección Bandera de Marruecos -->
+    <div class="w-[85%] flex items-center justify-center my-3 mx-auto relative z-10">
+      <div class="w-full flex items-center justify-center relative">
+        <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-[#C1272D] to-transparent top-1/2 -translate-y-1/2"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-[#0C0807] border border-[#006233]/40 flex items-center justify-center shadow-lg shadow-[#006233]/20">
+          <svg class="w-3.5 h-3.5 text-[#006233]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1.587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 10.21l8.2-1.192z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons at Bottom -->
+    <div class="flex flex-col items-center justify-center gap-3 w-full max-w-xs mx-auto pb-4 relative z-10">
+      <a href="menu.html" onclick="toggleMobileNav()" class="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-tertiary hover:to-tertiary text-white font-label font-bold py-3 px-4 rounded-full uppercase tracking-wider text-xs shadow-lg shadow-primary/20 active:scale-95 transition-all text-center">
+        Ver Carta Digital
+      </a>
+    </div>
+
+  </div>
+
+  <main class="relative z-10 flex-1">
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN 1 - HERO (100% Ultra Clean Photo Focus) -->
+    <!-- ============================================ -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4">
+      
+      <!-- HERO CAROUSEL BACKGROUND WITH ULTRA-LIGHT GRADIENT -->
+      <div class="absolute inset-0 z-0">
+        <div class="swiper heroSwiper w-full h-full">
+          <div class="swiper-wrapper">
+            <!-- Slide 1: Main Requested Hero Image -->
+            <div class="swiper-slide relative">
+              <img src="hero/4bba8254-61b9-4c74-b63a-446d8be3ba18.JPG" alt="Restaurante Marrakech Pere Garau" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[4000ms] ease-out"/>
+            </div>
+            <!-- Slide 2: Secondary Photo -->
+            <div class="swiper-slide relative">
+              <img src="hero/CBA90C56-B95A-44D9-AEB4-42D06B241D8F.jpg" alt="Interior Restaurante Pere Garau" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[4000ms] ease-out"/>
+            </div>
+            <!-- Slide 3: Specialities Photo -->
+            <div class="swiper-slide relative">
+              <img src="hero/IMG_9264.JPG" alt="Gastronomía Marroquí Pere Garau" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[4000ms] ease-out"/>
+            </div>
+            <!-- Slide 4: Store Photo -->
+            <div class="swiper-slide relative">
+              <img src="hero/IMG_4732.JPG" alt="Especialidades Marrakech" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[4000ms] ease-out"/>
+            </div>
+            <!-- Slide 5: Ambient Photo -->
+            <div class="swiper-slide relative">
+              <img src="hero/IMG_4550.jpg" alt="Local Pere Garau" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[4000ms] ease-out"/>
+            </div>
+          </div>
+        </div>
+        <!-- Light Bottom Gradient Overlay for Readability at the Bottom -->
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral via-transparent to-transparent z-10"></div>
+      </div>
+
+      <!-- HERO CONTENT CONTAINER (Title 2 Lines & Button at the VERY BOTTOM) -->
+      <div class="relative z-20 w-full max-w-2xl mx-auto flex flex-col justify-end items-center min-h-[78vh] sm:min-h-[84vh] pb-6 px-4">
+        
+        <!-- PARTE INFERIOR: Título en 2 Líneas + Botón directamente sobre la foto (SIN CAJA) -->
+        <div class="w-full text-center flex flex-col items-center gap-2.5">
+          
+          <!-- H1 Title at the bottom split in 2 lines -->
+          <h1 class="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_15px_rgba(0,0,0,0.95)]">
+            <span class="block">TACOS MARRAKECH</span>
+            <span class="text-gold-gradient block font-extrabold text-xl sm:text-3xl mt-1">PERE GARAU</span>
+          </h1>
+
+          <!-- CTA Button directly under title at the bottom -->
+          <a href="menu.html" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary via-amber-500 to-tertiary text-neutral font-label font-extrabold py-2.5 px-6 rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.8)] hover:scale-105 active:scale-95 transition-all duration-300 text-[11px] sm:text-xs uppercase tracking-[0.18em] border border-amber-300/40 group">
+            <span class="material-symbols-outlined text-base transition-transform group-hover:scale-110">restaurant_menu</span>
+            <span>VER CARTA DIGITAL</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEPARATOR -->
+    <div class="w-full flex items-center justify-center my-4 opacity-70">
+      <div class="w-[90%] max-w-4xl flex items-center justify-center relative">
+        <div class="absolute inset-0 h-[1px] bg-gradient-to-r from-transparent via-[#C4632A] to-transparent top-1/2 -translate-y-1/2"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-neutral border border-tertiary/40 flex items-center justify-center shadow-md">
+          <span class="material-symbols-outlined text-tertiary text-sm">star</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN 2 - NUESTRA CARTA DIGITAL           -->
+    <!-- ============================================ -->
+    <section class="py-16 px-4 bg-neutral-darker/60 relative" id="carta">
+      <div class="max-w-4xl mx-auto text-center">
+        
+        <!-- Section Header -->
+        <div class="mb-8">
+          <span class="text-[10px] sm:text-xs bg-gradient-to-r from-amber-400 via-amber-300 to-tertiary bg-clip-text text-transparent font-label uppercase tracking-[0.25em] font-extrabold mb-2 block">CARTA DE PERE GARAU</span>
+          <h2 class="font-headline text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3">Nuestra Carta Digital</h2>
+          <p class="text-white/70 text-xs sm:text-sm max-w-prose mx-auto font-light leading-relaxed">
+            Platos tradicionales marroquíes, Tacos XXL gratinados, Hamburguesas Halal y Té Moruno artesanal.
+          </p>
+        </div>
+
+        <!-- Menu Preview Glassmorphism Card -->
+        <div class="bg-neutral-light/60 backdrop-blur-xl border border-amber-500/20 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl relative overflow-hidden flex flex-col items-center">
+          
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary via-amber-500 to-tertiary p-0.5 mb-6 shadow-[0_10px_30px_rgba(196,99,42,0.4)]">
+            <div class="w-full h-full bg-neutral-darker rounded-full flex items-center justify-center text-tertiary">
+              <span class="material-symbols-outlined text-3xl">menu_book</span>
+            </div>
+          </div>
+
+          <h3 class="font-headline text-xl sm:text-2xl font-bold text-white mb-3">Carta Adaptada por Idiomas</h3>
+          <p class="text-white/60 text-xs sm:text-sm max-w-md mx-auto font-light mb-6 leading-relaxed">
+            Disponible en Español, English y Français en nuestra plataforma interactiva optimizada para móvil.
+          </p>
+
+          <a href="menu.html" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary via-amber-500 to-tertiary text-neutral font-label font-black py-3.5 px-9 rounded-full shadow-[0_10px_30px_rgba(196,99,42,0.5)] hover:shadow-[0_15px_40px_rgba(212,168,75,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 text-xs uppercase tracking-[0.2em] group">
+            <span class="material-symbols-outlined text-lg transition-transform group-hover:scale-110">restaurant_menu</span>
+            <span>VER CARTA DIGITAL</span>
+            <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </a>
+
+          <!-- Language Badges -->
+          <div class="flex items-center justify-center gap-3 mt-6 pt-5 border-t border-white/10 text-[11px] text-white/50 font-label font-bold tracking-widest">
+            <span class="inline-flex items-center gap-1">🇪🇸 ES</span>
+            <span>•</span>
+            <span class="inline-flex items-center gap-1">🇬🇧 EN</span>
+            <span>•</span>
+            <span class="inline-flex items-center gap-1">🇫🇷 FR</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEPARATOR -->
+    <div class="w-full flex items-center justify-center my-4 opacity-70">
+      <div class="w-[90%] max-w-4xl flex items-center justify-center relative">
+        <div class="absolute inset-0 h-[1px] bg-gradient-to-r from-transparent via-[#C4632A] to-transparent top-1/2 -translate-y-1/2"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-neutral border border-tertiary/40 flex items-center justify-center shadow-md">
+          <span class="material-symbols-outlined text-tertiary text-sm">location_on</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN 3 - CONTACTO & UBICACIÓN            -->
+    <!-- ============================================ -->
+    <section class="py-16 px-4 relative" id="contacto">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="bg-neutral-light/70 backdrop-blur-xl border border-amber-500/20 p-6 sm:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+          
+          <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="text-center mb-8">
+            <span class="text-[10px] text-amber-400 font-label uppercase tracking-[0.25em] font-extrabold mb-2 block">VISÍTANOS</span>
+            <h2 class="font-headline text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3">Contacto & Ubicación</h2>
+            <p class="text-white/60 text-xs sm:text-sm max-w-lg mx-auto font-light leading-relaxed">
+              Estamos en la Plaza de Pere Garau. Ven a conocernos o ponte en contacto con nosotros.
+            </p>
+          </div>
+
+          <!-- INFO GRID -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            
+            <!-- Address Card -->
+            <div class="bg-neutral/80 border border-white/10 p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center mb-3 text-tertiary">
+                  <span class="material-symbols-outlined">place</span>
+                </div>
+                <h3 class="font-headline text-base font-bold text-white mb-2">Dirección</h3>
+                <p class="text-white/80 text-xs leading-relaxed mb-4">
+                  Plaza de Pere Garau, 18<br/>
+                  07007 Palma de Mallorca, Illes Balears
+                </p>
+              </div>
+              <a href="https://www.google.com/maps/place/french+TACOS/@39.5740991,2.6644862,21z/data=!4m6!3m5!1s0x129793aeb90f83db:0x64a6ac634c3929c3!8m2!3d39.57407!4d2.6646529!16s%2Fg%2F11yb2c682b?entry=ttu&g_ep=EgoyMDI2MDcyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-tertiary via-amber-400 to-tertiary text-neutral font-label font-extrabold py-3 px-6 rounded-full text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all">
+                <span class="material-symbols-outlined text-base">map</span>
+                <span>Ver en Google Maps</span>
+              </a>
+            </div>
+
+            <!-- Operating Info & Phone -->
+            <div class="bg-neutral/80 border border-white/10 p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center mb-3 text-tertiary">
+                  <span class="material-symbols-outlined">schedule</span>
+                </div>
+                <h3 class="font-headline text-base font-bold text-white mb-2">Horario & Atención</h3>
+                <p class="text-white/80 text-xs leading-relaxed mb-1">
+                  <strong class="text-amber-300">Lunes a Domingo:</strong> 12:00h – 00:00h
+                </p>
+                <p class="text-[10px] text-white/50 mb-4">Servicio de comida continuado.</p>
+              </div>
+
+              <div class="flex flex-col gap-2.5">
+                <a href="tel:+34632692191" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-label font-bold py-2.5 px-6 rounded-full border border-white/20 text-xs uppercase tracking-wider transition-all">
+                  <span class="material-symbols-outlined text-base text-accent">call</span>
+                  <span>Llamar: 632 69 21 91</span>
+                </a>
+                <a href="https://wa.me/34632692191?text=Hola,%20quisiera%20consultar%20sobre%20el%20restaurante%20Pere%20Garau" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#25D366]/20 hover:bg-[#25D366]/30 text-[#25D366] font-label font-bold py-2.5 px-6 rounded-full border border-[#25D366]/40 text-xs uppercase tracking-wider transition-all">
+                  <span class="material-symbols-outlined text-base">chat</span>
+                  <span>Pedir por WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Return Link -->
+          <div class="text-center pt-4 border-t border-white/10">
+            <a href="../index.html" class="inline-flex items-center gap-2 text-white/60 hover:text-tertiary transition-colors text-xs font-label uppercase tracking-widest">
+              <span class="material-symbols-outlined text-sm">home</span>
+              <span>Ir al sitio web principal de Tacos Marrakech</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-neutral-darker border-t border-white/10 py-8 px-4 text-center relative z-10">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-3">
+      <div class="flex items-center gap-2">
+        <img src="../assets/logofotter.jpg" alt="Logo Tacos Marrakech" class="w-7 h-7 rounded-full border border-tertiary/40"/>
+        <span class="font-headline font-bold text-sm text-gold-gradient tracking-wider uppercase">Tacos Marrakech</span>
+      </div>
+      <p class="text-[11px] text-white/40 font-light">
+        © 2026 Tacos Marrakech — Plaza de Pere Garau, 18. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Toggle Mobile Drawer Navigation & Lock Body Scroll
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      if (drawer) {
+        const isCurrentlyOpen = !drawer.classList.contains('opacity-0');
+        if (isCurrentlyOpen) {
+          drawer.classList.add('opacity-0', 'pointer-events-none');
+          document.body.classList.remove('overflow-hidden');
+        } else {
+          drawer.classList.remove('opacity-0', 'pointer-events-none');
+          document.body.classList.add('overflow-hidden');
+        }
+      }
+    }
+
+    // Initialize Hero Swiper with Smooth Fade & Extended Autoplay (Ken Burns Style)
+    const heroSwiper = new Swiper('.heroSwiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      speed: 2200
+    });
+
+    // Hide Page Preloader after 3.5 seconds
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('page-preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 3500);
+      }
+    });
+
+    // GSAP Scroll Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.gsap) {
+        gsap.from("h1", { opacity: 0, y: 25, duration: 1, delay: 0.2 });
+      }
+    });
+  </script>
+</body>
+</html>
